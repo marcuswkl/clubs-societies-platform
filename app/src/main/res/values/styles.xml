@@ -3,6 +3,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:background">@color/colorBackground</item>
         <item name="android:fontFamily">@font/autogate_sans_regular</item>
         <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
