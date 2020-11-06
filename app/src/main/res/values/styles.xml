@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:background">@color/colorBackground</item>
         <item name="android:fontFamily">@font/autogate_sans_regular</item>
@@ -9,10 +9,29 @@
     </style>
 
     <style name="ButtonStyle" parent="@style/Widget.AppCompat.Button">
-        <item name="android:background">@drawable/rounded_button</item>
+        <item name="android:background">@drawable/rounded</item>
         <item name="android:backgroundTint">@color/colorPrimary</item>
         <item name="android:textColor">@color/colorSecondary</item>
         <item name="android:textSize">35sp</item>
+    </style>
+
+    <style name="MainMenuTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+    <style name="InputFieldLabel" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    
+    <style name="InputField" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/rounded</item>
+        <item name="android:backgroundTint">@color/colorSecondary</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
     </style>
 
 </resources>
