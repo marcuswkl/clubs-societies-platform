@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "593524554062",
+    "firebase_url": "https://cns-platform.firebaseio.com",
+    "project_id": "cns-platform",
+    "storage_bucket": "cns-platform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593524554062:android:9d8d01bf0447131ef2861f",
+        "android_client_info": {
+          "package_name": "com.marcuswkl.cnsplatform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593524554062-ahifl83jt5hlaln3dffcu78cue14uj9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArtcIt1RBGDG2-59qciyhwYl_UpKzRIDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593524554062-ahifl83jt5hlaln3dffcu78cue14uj9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
