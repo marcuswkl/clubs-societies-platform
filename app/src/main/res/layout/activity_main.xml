@@ -14,7 +14,7 @@
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
         app:itemIconSize="40dp"
-        app:itemBackground="@color/colorPrimary"
+        app:itemBackground="@color/colorBackground"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:labelVisibilityMode="unlabeled"
