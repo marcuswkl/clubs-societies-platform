@@ -26,7 +26,15 @@ class LoginActivity : AppCompatActivity() {
         val login = findViewById<Button>(R.id.login_button)
 
         login.setOnClickListener {
-            signIn(username, password)
+
+            Toast.makeText(applicationContext, "Login Clicked.", Toast.LENGTH_SHORT).show()
+
+            if (username == null || password == null) {
+                Toast.makeText(applicationContext, "Invalid Login!", Toast.LENGTH_SHORT).show()
+            } else {
+                signIn(username, password)
+            }
+
         }
 
         auth = Firebase.auth
@@ -47,10 +55,10 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    Toast.makeText(baseContext, "Login Successful.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Login Successful.", Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
-                    Toast.makeText(baseContext, "Login Failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Login Failed.", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
