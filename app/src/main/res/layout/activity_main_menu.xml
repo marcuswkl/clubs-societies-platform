@@ -22,13 +22,14 @@
         android:layout_width="@dimen/button_length"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
+        android:onClick="openLogin"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cns_logo" />
 
-    <Button
+    <!--<Button
         android:id="@+id/register_button"
         android:layout_width="@dimen/button_length"
         android:layout_height="wrap_content"
@@ -39,6 +40,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
