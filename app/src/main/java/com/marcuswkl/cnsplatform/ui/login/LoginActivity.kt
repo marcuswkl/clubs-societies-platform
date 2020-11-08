@@ -1,6 +1,7 @@
 package com.marcuswkl.cnsplatform.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
@@ -21,13 +22,14 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_login)
 
-        val username = findViewById<EditText>(R.id.student_id_field).text.toString()
-        val password = findViewById<EditText>(R.id.password_field).text.toString()
         val login = findViewById<Button>(R.id.login_button)
 
         login.setOnClickListener {
 
             Toast.makeText(applicationContext, "Login Clicked.", Toast.LENGTH_SHORT).show()
+
+            val username = findViewById<EditText>(R.id.student_id_field).text.toString()
+            val password = findViewById<EditText>(R.id.password_field).text.toString()
 
             if (username == null || password == null) {
                 Toast.makeText(applicationContext, "Invalid Login!", Toast.LENGTH_SHORT).show()
