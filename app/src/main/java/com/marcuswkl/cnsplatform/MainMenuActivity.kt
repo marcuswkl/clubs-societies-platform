@@ -13,7 +13,7 @@ class MainMenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_menu)
     }
 
-    fun openLogin() {
+    fun openLogin(view: View) {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
