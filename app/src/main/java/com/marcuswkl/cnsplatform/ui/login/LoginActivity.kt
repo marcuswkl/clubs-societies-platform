@@ -1,5 +1,6 @@
 package com.marcuswkl.cnsplatform.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.marcuswkl.cnsplatform.MainActivity
 
 import com.marcuswkl.cnsplatform.R
 
@@ -39,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
             if (validateForm(username, password)) {
                 signIn(username, password)
             }
-            
+
         }
 
     }
@@ -73,9 +75,8 @@ class LoginActivity : AppCompatActivity() {
     // Update user interface for signed in user
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            // Update UI
-        } else {
-            // Don't Update UI
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
