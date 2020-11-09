@@ -1,7 +1,10 @@
 package com.marcuswkl.cnsplatform
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import com.marcuswkl.cnsplatform.ui.login.LoginActivity
 
 class MainMenuActivity : AppCompatActivity() {
 
@@ -9,4 +12,10 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
     }
+
+    fun openLogin(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
+
 }
