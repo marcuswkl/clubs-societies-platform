@@ -25,10 +25,7 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth // Initialise Firebase Auth
 
         val usernameEditText = findViewById<EditText>(R.id.student_id_field)
-        val username = usernameEditText.text.toString()
-
         val passwordEditText = findViewById<EditText>(R.id.password_field)
-        val password = passwordEditText.text.toString()
 
         val login = findViewById<Button>(R.id.login_button)
 
@@ -36,12 +33,13 @@ class LoginActivity : AppCompatActivity() {
 
             Toast.makeText(applicationContext, "Login Clicked.", Toast.LENGTH_SHORT).show()
 
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+
             if (validateForm(username, password)) {
                 signIn(username, password)
             }
-
-
-
+            
         }
 
     }
