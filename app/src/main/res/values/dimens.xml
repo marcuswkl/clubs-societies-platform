@@ -3,5 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="button_length">165dp</dimen>
-    <dimen name="category_tiles_margin_bottom">27dp</dimen>
+    <dimen name="category_tiles_margin_bottom">18dp</dimen>
 </resources>
