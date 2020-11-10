@@ -15,11 +15,11 @@
         android:id="@+id/navigation_home"
         android:name="com.marcuswkl.cnsplatform.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.marcuswkl.cnsplatform.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>
