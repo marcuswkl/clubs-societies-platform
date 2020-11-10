@@ -34,4 +34,10 @@
         <item name="android:paddingLeft">15dp</item>
     </style>
 
+    <style name="CategoryTile">
+        <item name="android:layout_width">110dp</item>
+        <item name="android:layout_height">110dp</item>
+        <item name="android:layout_marginEnd">18dp</item>
+    </style>
+
 </resources>
