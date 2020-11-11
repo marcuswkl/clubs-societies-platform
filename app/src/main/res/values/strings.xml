@@ -20,4 +20,7 @@
     <string name="phone_number">PHONE NUMBER</string>
     <string name="programme">PROGRAMME</string>
     <string name="intake">INTAKE</string>
+    <string name="gender">GENDER</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
 </resources>

@@ -74,6 +74,39 @@
         app:layout_constraintStart_toStartOf="@+id/gender_radio_group"
         app:layout_constraintTop_toBottomOf="@+id/full_name_field" />
 
+    <RadioGroup
+        android:id="@+id/gender_radio_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        android:scaleX="2.0"
+        android:scaleY="2.0"
+        android:translationX="170dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender_label">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            style="@style/RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:checked="true"
+            android:text="@string/male" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            style="@style/RadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female" />
+
+    </RadioGroup>
+
     <TextView
         android:id="@+id/ic_number_label"
         style="@style/InputFieldLabel"
