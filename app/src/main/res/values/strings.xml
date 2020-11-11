@@ -23,4 +23,6 @@
     <string name="gender">GENDER</string>
     <string name="male">MALE</string>
     <string name="female">FEMALE</string>
+    <string name="follow_list">FOLLOW LIST</string>
+    <string name="log_out">LOG OUT</string>
 </resources>

@@ -199,18 +199,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intake_label" />
 
-    <!--<Button
-        android:id="@+id/login_button"
+    <Button
+        android:id="@+id/follow_list_button"
         android:layout_width="@dimen/button_length"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="48dp"
-        android:text="@string/login"
+        android:text="@string/follow_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_field" />-->
+        app:layout_constraintTop_toBottomOf="@+id/intake_field" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="@dimen/button_length"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="48dp"
+        android:text="@string/log_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/follow_list_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
