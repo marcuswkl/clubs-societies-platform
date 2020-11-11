@@ -15,4 +15,9 @@
     <string name="register">REGISTER</string>
     <string name="student_id">STUDENT ID</string>
     <string name="password">PASSWORD</string>
+    <string name="full_name">FULL NAME</string>
+    <string name="ic_number">IC NUMBER</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="programme">PROGRAMME</string>
+    <string name="intake">INTAKE</string>
 </resources>
