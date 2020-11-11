@@ -18,213 +18,170 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/student_id_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/student_id"
-        app:layout_constraintStart_toStartOf="@+id/student_id_field"
-        app:layout_constraintTop_toBottomOf="@+id/profile_title" />
-
-    <TextView
-        android:id="@+id/student_id_field"
-        style="@style/InputField"
+    <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/student_id_label" />
-
-    <TextView
-        android:id="@+id/full_name_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="@string/full_name"
-        app:layout_constraintStart_toStartOf="@+id/full_name_field"
-        app:layout_constraintTop_toBottomOf="@+id/student_id_field" />
-
-    <TextView
-        android:id="@+id/full_name_field"
-        style="@style/InputField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/full_name_label" />
-
-    <TextView
-        android:id="@+id/gender_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/gender"
-        app:layout_constraintStart_toStartOf="@+id/gender_radio_group"
-        app:layout_constraintTop_toBottomOf="@+id/full_name_field" />
-
-    <RadioGroup
-        android:id="@+id/gender_radio_group"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        android:scaleX="2.0"
-        android:scaleY="2.0"
-        android:translationX="170dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender_label">
+        app:layout_constraintTop_toBottomOf="@+id/profile_title">
 
-        <RadioButton
-            android:id="@+id/radioButton"
-            style="@style/RadioButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
-            android:checked="true"
-            android:text="@string/male" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            style="@style/RadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/female" />
+            <TextView
+                android:id="@+id/student_id_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/student_id" />
 
-    </RadioGroup>
+            <TextView
+                android:id="@+id/student_id_field"
+                style="@style/InputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
 
-    <TextView
-        android:id="@+id/ic_number_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="@string/ic_number"
-        app:layout_constraintStart_toStartOf="@+id/ic_number_field"
-        app:layout_constraintTop_toBottomOf="@+id/gender_radio_group" />
+            <TextView
+                android:id="@+id/full_name_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/full_name" />
 
-    <TextView
-        android:id="@+id/ic_number_field"
-        style="@style/InputField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_number_label" />
+            <TextView
+                android:id="@+id/full_name_field"
+                style="@style/InputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
 
-    <TextView
-        android:id="@+id/phone_number_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-            android:text="@string/phone_number"
-        app:layout_constraintStart_toStartOf="@+id/phone_number_field"
-        app:layout_constraintTop_toBottomOf="@+id/ic_number_field" />
+            <TextView
+                android:id="@+id/gender_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/gender" />
 
-    <TextView
-        android:id="@+id/phone_number_field"
-        style="@style/InputField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number_label" />
+            <RadioGroup
+                android:id="@+id/gender_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:scaleX="2.0"
+                android:scaleY="2.0"
+                android:translationX="161dp">
 
-    <TextView
-        android:id="@+id/programme_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="@string/programme"
-        app:layout_constraintStart_toStartOf="@+id/programme_field"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number_field" />
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    style="@style/RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:checked="true"
+                    android:text="@string/male" />
 
-    <TextView
-        android:id="@+id/programme_field"
-        style="@style/InputField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/programme_label" />
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    style="@style/RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/female" />
 
-    <TextView
-        android:id="@+id/intake_label"
-        style="@style/InputFieldLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="@string/intake"
-        app:layout_constraintStart_toStartOf="@+id/intake_field"
-        app:layout_constraintTop_toBottomOf="@+id/programme_field" />
+            </RadioGroup>
 
-    <TextView
-        android:id="@+id/intake_field"
-        style="@style/InputField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intake_label" />
+            <TextView
+                android:id="@+id/ic_number_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/ic_number" />
 
-    <Button
-        android:id="@+id/follow_list_button"
-        android:layout_width="@dimen/button_length"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/follow_list"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intake_field" />
+            <TextView
+                android:id="@+id/ic_number_field"
+                style="@style/InputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
 
-    <Button
-        android:id="@+id/logout_button"
-        android:layout_width="@dimen/button_length"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="48dp"
-        android:text="@string/log_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/follow_list_button" />
+            <TextView
+                android:id="@+id/phone_number_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/phone_number" />
+
+            <TextView
+                android:id="@+id/phone_number_field"
+                style="@style/InputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/programme_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/programme" />
+
+            <TextView
+                android:id="@+id/programme_field"
+                style="@style/InputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/intake_label"
+                style="@style/InputFieldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:text="@string/intake" />
+
+            <TextView
+                android:id="@+id/intake_field"
+                style="@style/InputField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:id="@+id/follow_list_button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="90dp"
+                android:text="@string/follow_list" />
+
+            <Button
+                android:id="@+id/logout_button"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="115dp"
+                android:layout_marginBottom="60dp"
+                android:text="@string/log_out" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
