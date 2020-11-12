@@ -44,6 +44,8 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        supportActionBar?.hide()
+
     }
 
     // Update UI if user is signed in
