@@ -7,7 +7,7 @@
     tools:context=".ui.search.SearchFragment">
 
     <EditText
-        android:id="@+id/student_id_field"
+        android:id="@+id/search_field"
         style="@style/InputField"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -22,19 +22,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/search_field_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="3dp"
         android:backgroundTint="@color/colorSecondary"
         android:src="@drawable/ic_search_white"
         android:tint="@color/colorPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/student_id_field"
-        app:layout_constraintEnd_toEndOf="@+id/student_id_field"
-        app:layout_constraintTop_toTopOf="@+id/student_id_field" />
+        app:layout_constraintBottom_toBottomOf="@+id/search_field"
+        app:layout_constraintEnd_toEndOf="@+id/search_field"
+        app:layout_constraintTop_toTopOf="@+id/search_field" />
 
     <ScrollView
-        android:id="@+id/scrollView"
+        android:id="@+id/categoryTiles"
         android:layout_width="wrap_content"
         android:layout_height="550dp"
         android:layout_marginTop="50dp"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/student_id_field">
+        app:layout_constraintTop_toBottomOf="@+id/search_field">
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -57,17 +57,17 @@
                 android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/leadership_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_leadership" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/uniform_affiliate_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_uniform_affiliate" />
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/volunteer_tile"
                     style="@style/CategoryTile"
                     android:layout_marginEnd="0dp"
                     android:src="@drawable/tile_volunteer" />
@@ -79,17 +79,17 @@
                 android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/international_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_international" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/sports_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_sports" />
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/martial_arts_tile"
                     style="@style/CategoryTile"
                     android:layout_marginEnd="0dp"
                     android:src="@drawable/tile_martial_arts" />
@@ -101,17 +101,17 @@
                 android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
 
                 <ImageView
-                    android:id="@+id/imageView10"
+                    android:id="@+id/arts_music_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_arts_music" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/cultural_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_cultural" />
 
                 <ImageView
-                    android:id="@+id/imageView12"
+                    android:id="@+id/religious_tile"
                     style="@style/CategoryTile"
                     android:layout_marginEnd="0dp"
                     android:src="@drawable/tile_religious" />
@@ -123,17 +123,17 @@
                 android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
 
                 <ImageView
-                    android:id="@+id/imageView13"
+                    android:id="@+id/business_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_business" />
 
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/accounting_finance_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_accounting_finance" />
 
                 <ImageView
-                    android:id="@+id/imageView15"
+                    android:id="@+id/science_math_tile"
                     style="@style/CategoryTile"
                     android:layout_marginEnd="0dp"
                     android:src="@drawable/tile_science_math" />
@@ -146,17 +146,17 @@
                 android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
 
                 <ImageView
-                    android:id="@+id/imageView16"
+                    android:id="@+id/computing_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_computing" />
 
                 <ImageView
-                    android:id="@+id/imageView17"
+                    android:id="@+id/games_tile"
                     style="@style/CategoryTile"
                     android:src="@drawable/tile_games" />
 
                 <ImageView
-                    android:id="@+id/imageView18"
+                    android:id="@+id/general_tile"
                     style="@style/CategoryTile"
                     android:layout_marginEnd="0dp"
                     android:src="@drawable/tile_general" />
