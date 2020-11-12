@@ -41,6 +41,7 @@ class ProfileFragment : Fragment() {
     private fun logOut() {
         auth.signOut()
         val intent = Intent(activity, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
     }
 }
