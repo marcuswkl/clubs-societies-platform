@@ -2,7 +2,6 @@ package com.marcuswkl.cnsplatform.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
@@ -39,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
 
             if (validateForm(username, password)) {
-                signIn(username, password)
+                logIn(username, password)
             }
 
         }
@@ -56,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     // Sign in user with credentials
-    private fun signIn(username: String, password: String) {
+    private fun logIn(username: String, password: String) {
 
         val email = "$username@imail.sunway.edu.my"
 
