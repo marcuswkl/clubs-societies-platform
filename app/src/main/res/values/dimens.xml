@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="button_length">165dp</dimen>
     <dimen name="category_tiles_margin_bottom">18dp</dimen>
+    <dimen name="club_label_margin_top">2.5dp</dimen>
+    <dimen name="club_label_margin_end">20dp</dimen>
 </resources>
