@@ -1,13 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.search.leadership.LeadershipFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <EditText
+        android:id="@+id/search_field"
+        style="@style/InputField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/search_field_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
+        android:backgroundTint="@color/colorSecondary"
+        android:src="@drawable/ic_search_white"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/search_field"
+        app:layout_constraintEnd_toEndOf="@+id/search_field"
+        app:layout_constraintTop_toTopOf="@+id/search_field" />
+
+    <ScrollView
+        android:id="@+id/categoryTiles"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="71dp"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_field">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/leadership_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_leadership" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate" />
+
+                <ImageView
+                    android:id="@+id/volunteer_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_volunteer" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/international_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_international" />
+
+                <ImageView
+                    android:id="@+id/sports_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_sports" />
+
+                <ImageView
+                    android:id="@+id/martial_arts_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_martial_arts" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/arts_music_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_arts_music" />
+
+                <ImageView
+                    android:id="@+id/cultural_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_cultural" />
+
+                <ImageView
+                    android:id="@+id/religious_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_religious" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/business_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_business" />
+
+                <ImageView
+                    android:id="@+id/accounting_finance_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_accounting_finance" />
+
+                <ImageView
+                    android:id="@+id/science_math_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_science_math" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/computing_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_computing" />
+
+                <ImageView
+                    android:id="@+id/games_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_games" />
+
+                <ImageView
+                    android:id="@+id/general_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_general" />
+            </TableRow>
+        </TableLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
