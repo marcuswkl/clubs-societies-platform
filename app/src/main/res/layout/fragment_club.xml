@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/logo_club_susc"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +30,10 @@
         app:layout_constraintTop_toTopOf="@+id/club_logo" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="20dp"
         android:scrollbarThumbVertical="@android:color/transparent"
@@ -259,17 +261,21 @@
                         android:id="@+id/club_follow_button"
                         android:layout_width="155dp"
                         android:layout_height="@dimen/button_height"
-                        android:layout_marginStart="15dp"
+                        android:layout_marginStart="10dp"
                         android:text="@string/follow"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <Button
                         android:id="@+id/club_enquire_button"
                         android:layout_width="155dp"
                         android:layout_height="@dimen/button_height"
-                        android:layout_marginEnd="15dp"
+                        android:layout_marginEnd="20dp"
                         android:text="@string/enquire"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </TableRow>
@@ -283,9 +289,10 @@
                     android:id="@+id/club_join_button"
                     android:layout_width="332dp"
                     android:layout_height="@dimen/button_height"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_span="2"
                     android:text="@string/join" />
 
