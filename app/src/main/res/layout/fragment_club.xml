@@ -6,30 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/club_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logo_club_susc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/club_name_title"
         style="@style/ClubNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
         android:text="CLUB NAME"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/club_logo"
+        app:layout_constraintStart_toEndOf="@+id/club_logo"
+        app:layout_constraintTop_toTopOf="@+id/club_logo" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="20dp"
         android:scrollbarThumbVertical="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/club_name_title">
+        app:layout_constraintTop_toBottomOf="@+id/club_logo">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -243,13 +252,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:orientation="vertical"
-                    android:layout_span="2">
+                    android:layout_span="2"
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/club_follow_button"
                         android:layout_width="155dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/button_height"
                         android:layout_marginStart="15dp"
                         android:text="@string/follow"
                         app:layout_constraintStart_toStartOf="parent" />
@@ -257,7 +266,7 @@
                     <Button
                         android:id="@+id/club_enquire_button"
                         android:layout_width="155dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/button_height"
                         android:layout_marginEnd="15dp"
                         android:text="@string/enquire"
                         app:layout_constraintEnd_toEndOf="parent" />
@@ -273,18 +282,17 @@
                 <Button
                     android:id="@+id/club_join_button"
                     android:layout_width="332dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_height="@dimen/button_height"
                     android:layout_marginStart="15dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="15dp"
-                    android:text="@string/join"
-                    android:layout_span="2" />
+                    android:layout_span="2"
+                    android:text="@string/join" />
 
             </TableRow>
         </TableLayout>
 
     </ScrollView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
