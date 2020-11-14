@@ -25,6 +25,16 @@
         <item name="android:textColor">@color/colorSecondary</item>
     </style>
 
+    <style name="ClubNameTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+    <style name="ClubInfoText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
     <style name="InputFieldLabel" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/colorPrimary</item>
