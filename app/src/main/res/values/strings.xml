@@ -19,4 +19,7 @@
     <string name="follow_list">FOLLOW LIST</string>
     <string name="log_out">LOGOUT</string>
     <string name="student_leadership_bodies">STUDENT LEADERSHIP BODIES</string>
+    <string name="follow">FOLLOW</string>
+    <string name="enquire">ENQUIRE</string>
+    <string name="join">JOIN</string>
 </resources>

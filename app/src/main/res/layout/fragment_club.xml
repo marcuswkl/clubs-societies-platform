@@ -7,8 +7,8 @@
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
-        android:id="@+id/profile_title"
-        style="@style/ClubNameText"
+        android:id="@+id/club_name_title"
+        style="@style/ClubNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_title">
+        app:layout_constraintTop_toBottomOf="@+id/club_name_title">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_category_label"
@@ -52,7 +52,7 @@
                 <TextView
                     android:id="@+id/club_category"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="318dp"
                     android:layout_height="wrap_content"
                     android:text="CATEGORY" />
 
@@ -61,7 +61,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_info_label"
@@ -83,7 +83,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_past_events_label"
@@ -105,7 +105,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_committee_list_label"
@@ -127,7 +127,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_advisor_label"
@@ -149,7 +149,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_meeting_info_label"
@@ -171,7 +171,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_membership_info_label"
@@ -193,7 +193,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_email_label"
@@ -215,7 +215,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_tags_label"
@@ -233,35 +233,58 @@
                     android:text="TAGS" />
 
             </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:orientation="vertical"
+                    android:layout_span="2">
+
+                    <Button
+                        android:id="@+id/club_follow_button"
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/follow"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <Button
+                        android:id="@+id/club_enquire_button"
+                        android:layout_width="155dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:text="@string/enquire"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <Button
+                    android:id="@+id/club_join_button"
+                    android:layout_width="332dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:text="@string/join"
+                    android:layout_span="2" />
+
+            </TableRow>
         </TableLayout>
 
     </ScrollView>
 
-    <!--    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/follow_list_button"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="75dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="90dp"
-                android:text="@string/follow_list" />
-
-            <Button
-                android:id="@+id/logout_button"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginEnd="115dp"
-                android:layout_marginBottom="60dp"
-                android:text="@string/log_out" />
-        </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
