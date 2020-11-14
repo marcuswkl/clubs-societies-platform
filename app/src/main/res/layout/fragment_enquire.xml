@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/club_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/logo_club_susc"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/club_name_title"
+        style="@style/ClubNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="CLUB NAME"
+        app:layout_constraintBottom_toBottomOf="@+id/club_logo"
+        app:layout_constraintStart_toEndOf="@+id/club_logo"
+        app:layout_constraintTop_toTopOf="@+id/club_logo" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/club_logo">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_category_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_category" />
+
+                <TextView
+                    android:id="@+id/club_category"
+                    style="@style/ClubInfoText"
+                    android:layout_width="318dp"
+                    android:layout_height="wrap_content"
+                    android:text="CATEGORY" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_info_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_info" />
+
+                <TextView
+                    android:id="@+id/club_info"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="INFO" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_past_events_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_past_events" />
+
+                <TextView
+                    android:id="@+id/club_past_events"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PAST EVENTS" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_committee_list_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_committee_list" />
+
+                <TextView
+                    android:id="@+id/club_committee_list"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="COMMITTEE LIST" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_advisor_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_advisor" />
+
+                <TextView
+                    android:id="@+id/club_advisor"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ADVISOR" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_meeting_info_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_meeting_info" />
+
+                <TextView
+                    android:id="@+id/club_meeting_info"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MEETING INFO" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_membership_info_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_membership_info" />
+
+                <TextView
+                    android:id="@+id/club_membership_info"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MEMBERSHIP FEE AND BENEFITS" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_email_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_email" />
+
+                <TextView
+                    android:id="@+id/club_email"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="EMAIL" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/club_tags_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_tags" />
+
+                <TextView
+                    android:id="@+id/club_tags"
+                    style="@style/ClubInfoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TAGS" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_span="2"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/club_follow_button"
+                        android:layout_width="155dp"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/follow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/club_enquire_button"
+                        android:layout_width="155dp"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/enquire"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+
+                <Button
+                    android:id="@+id/club_join_button"
+                    android:layout_width="332dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_span="2"
+                    android:text="@string/join" />
+
+            </TableRow>
+        </TableLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
