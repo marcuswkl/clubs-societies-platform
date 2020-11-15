@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.club.ClubFragment
@@ -24,15 +25,21 @@ class LeadershipFragment : Fragment() {
             ViewModelProvider(this).get(LeadershipViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_leadership, container, false)
 
+        val fragmentManager = activity?.supportFragmentManager
+
         root.leadership_susc_tile.setOnClickListener {
+
+            val result = "sunwayuniversitystudentcouncil"
+            fragmentManager?.setFragmentResult("clubName", bundleOf("name" to result))
+
             val clubFragment = ClubFragment()
-            val fragmentManager = activity?.supportFragmentManager
             val fragmentTransaction = fragmentManager?.beginTransaction()
             if (fragmentTransaction != null) {
                 fragmentTransaction.replace(R.id.leadership_fragment, clubFragment)
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
             }
+
         }
 
         return root

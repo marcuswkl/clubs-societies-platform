@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -28,22 +29,29 @@ class ClubFragment : Fragment() {
 
         val db = Firebase.firestore
 
-        val clubRef = db.collection("clubs").document("sunwayuniversitystudentcouncil")
-        clubRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    Toast.makeText(activity, "Read Document Successful.", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
-                }
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
-            }
+        val fragmentManager = activity?.supportFragmentManager
+        fragmentManager?.setFragmentResultListener(
+            "clubName", this, { key, bundle ->
+
+                val clubName = bundle.getString("name")
+
+                val clubRef = db.collection("clubs").document("$clubName")
+                clubRef.get()
+                    .addOnSuccessListener { document ->
+                        if (document != null) {
+                            Toast.makeText(activity, "Read Document Successful.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                    }
+
+        })
 
         root.club_enquire_button.setOnClickListener {
             val enquireFragment = EnquireFragment()
-            val fragmentManager = activity?.supportFragmentManager
             val fragmentTransaction = fragmentManager?.beginTransaction()
             if (fragmentTransaction != null) {
                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
