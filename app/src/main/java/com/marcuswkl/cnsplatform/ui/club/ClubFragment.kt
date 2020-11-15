@@ -39,7 +39,18 @@ class ClubFragment : Fragment() {
                 clubRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
-                            Toast.makeText(activity, "Read Document Successful.", Toast.LENGTH_SHORT).show()
+
+                            root.club_name_title.text = document.getString("name")
+                            root.club_category.text = document.getString("category")
+                            root.club_info.text = document.getString("info")
+                            root.club_past_events.text = document.getString("past_events")
+                            root.club_advisor.text = document.getString("advisor")
+                            root.club_membership_info.text = document.getDouble("membership_fee")
+                                ?.toInt()
+                                .toString()
+                            root.club_email.text = document.getString("email")
+                            root.club_tags.text = document.getString("tags")
+
                         } else {
                             Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
                         }

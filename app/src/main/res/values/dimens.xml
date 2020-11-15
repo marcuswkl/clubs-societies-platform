@@ -8,4 +8,5 @@
     <dimen name="club_section_margin_bottom">18dp</dimen>
     <dimen name="club_label_margin_top">2.5dp</dimen>
     <dimen name="club_label_margin_end">20dp</dimen>
+    <dimen name="club_text_width">318dp</dimen>
 </resources>

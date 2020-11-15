@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/club_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/club_name_title"
         style="@style/ClubNameTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="CLUB NAME"
@@ -32,8 +32,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="362dp"
+        android:layout_height="602dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="20dp"
@@ -64,8 +64,9 @@
                 <TextView
                     android:id="@+id/club_category"
                     style="@style/ClubInfoText"
-                    android:layout_width="318dp"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="CATEGORY" />
 
             </TableRow>
@@ -86,8 +87,9 @@
                 <TextView
                     android:id="@+id/club_info"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="INFO" />
 
             </TableRow>
@@ -108,8 +110,9 @@
                 <TextView
                     android:id="@+id/club_past_events"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="PAST EVENTS" />
 
             </TableRow>
@@ -130,7 +133,7 @@
                 <TextView
                     android:id="@+id/club_committee_list"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:text="COMMITTEE LIST" />
 
@@ -152,8 +155,9 @@
                 <TextView
                     android:id="@+id/club_advisor"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="ADVISOR" />
 
             </TableRow>
@@ -174,7 +178,7 @@
                 <TextView
                     android:id="@+id/club_meeting_info"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:text="MEETING INFO" />
 
@@ -196,7 +200,7 @@
                 <TextView
                     android:id="@+id/club_membership_info"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:text="MEMBERSHIP FEE AND BENEFITS" />
 
@@ -218,8 +222,9 @@
                 <TextView
                     android:id="@+id/club_email"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="EMAIL" />
 
             </TableRow>
@@ -240,8 +245,9 @@
                 <TextView
                     android:id="@+id/club_tags"
                     style="@style/ClubInfoText"
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
                     android:text="TAGS" />
 
             </TableRow>
