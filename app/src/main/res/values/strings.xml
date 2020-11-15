@@ -24,4 +24,5 @@
     <string name="join">JOIN</string>
     <string name="ask_us_a_question">ASK US A QUESTION:</string>
     <string name="submit">SUBMIT</string>
+    <string name="membership_fee_text">RM %d / YEAR</string>
 </resources>
