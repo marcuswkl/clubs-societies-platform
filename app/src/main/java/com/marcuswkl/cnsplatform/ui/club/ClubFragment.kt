@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.ktx.firestore
@@ -62,6 +63,15 @@ class ClubFragment : Fragment() {
                             root.club_email.text = document.getString("email")
                             root.club_tags.text = document.getString("tags")
 
+                            root.club_enquire_button.setOnClickListener {
+                                fragmentManager.setFragmentResult("enquireClubName", bundleOf("name" to clubName))
+                                val enquireFragment = EnquireFragment()
+                                val fragmentTransaction = fragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
+                                fragmentTransaction.addToBackStack(null)
+                                fragmentTransaction.commit()
+                            }
+
                         } else {
                             Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
                         }
@@ -71,16 +81,6 @@ class ClubFragment : Fragment() {
                     }
 
         })
-
-        root.club_enquire_button.setOnClickListener {
-            val enquireFragment = EnquireFragment()
-            val fragmentTransaction = fragmentManager?.beginTransaction()
-            if (fragmentTransaction != null) {
-                fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
-            }
-        }
 
         return root
     }

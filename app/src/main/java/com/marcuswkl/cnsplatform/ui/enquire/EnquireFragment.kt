@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_enquire.view.*
 
 class EnquireFragment : Fragment() {
 
@@ -20,6 +25,31 @@ class EnquireFragment : Fragment() {
         enquireViewModel =
             ViewModelProvider(this).get(EnquireViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_enquire, container, false)
+
+        val db = Firebase.firestore
+
+        val fragmentManager = activity?.supportFragmentManager
+        fragmentManager?.setFragmentResultListener(
+            "enquireClubName", this, { key, bundle ->
+
+                val enquireClubName = bundle.getString("name")
+
+                val clubRef = db.collection("clubs").document("$enquireClubName")
+                clubRef.get()
+                    .addOnSuccessListener { document ->
+                        if (document != null) {
+                            Picasso.get().load(document.getString("logo")).into(root.enquire_club_logo)
+                            root.enquire_club_name_title.text = document.getString("name")
+                        } else {
+                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                    }
+
+            })
+
         return root
     }
 
