@@ -11,6 +11,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.enquire.EnquireFragment
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_club.view.*
 
 class ClubFragment : Fragment() {
@@ -39,6 +40,7 @@ class ClubFragment : Fragment() {
                     .addOnSuccessListener { document ->
                         if (document != null) {
 
+                            Picasso.get().load(document.getString("logo")).into(root.club_logo)
                             root.club_name_title.text = document.getString("name")
                             root.club_category.text = document.getString("category")
                             root.club_info.text = document.getString("info")
