@@ -74,4 +74,12 @@ class ClubFragment : Fragment() {
         return root
     }
 
+    private fun listToString(list: List<*>): String {
+        val listText = StringBuilder()
+        list.forEach {listItem ->
+            listText.appendLine(listItem)
+        }
+        return listText.toString()
+    }
+
 }
