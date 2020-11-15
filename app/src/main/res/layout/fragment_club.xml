@@ -51,7 +51,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_category_label"
@@ -74,7 +74,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_info_label"
@@ -97,7 +97,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_past_events_label"
@@ -120,7 +120,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_multi_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_committee_list_label"
@@ -142,7 +142,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_advisor_label"
@@ -165,7 +165,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_multi_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_meeting_info_label"
@@ -187,7 +187,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_multi_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_membership_info_label"
@@ -209,7 +209,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_email_label"
@@ -232,7 +232,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <ImageView
                     android:id="@+id/club_tags_label"
@@ -255,7 +255,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -290,7 +290,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_margin_bottom">
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
 
                 <Button
                     android:id="@+id/club_join_button"

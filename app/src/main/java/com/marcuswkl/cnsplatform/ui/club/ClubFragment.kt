@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -44,10 +43,20 @@ class ClubFragment : Fragment() {
                             root.club_category.text = document.getString("category")
                             root.club_info.text = document.getString("info")
                             root.club_past_events.text = document.getString("past_events")
+
+                            val committeeList = document.get("committee_list") as List<*>
+                            root.club_committee_list.text = listToString(committeeList)
+
+                            val meetingInfo = document.get("meeting_info") as List<*>
+                            root.club_meeting_info.text = listToString(meetingInfo)
+
                             root.club_advisor.text = document.getString("advisor")
-                            root.club_membership_info.text = document.getDouble("membership_fee")
-                                ?.toInt()
-                                .toString()
+
+                            val membershipFee = document.getDouble("membership_fee")?.toInt()
+                            val membershipFeeText = getString(R.string.membership_fee_text, membershipFee)
+                            val membershipBenefits = document.get("membership_benefits") as List<*>
+                            root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
+
                             root.club_email.text = document.getString("email")
                             root.club_tags.text = document.getString("tags")
 
@@ -74,10 +83,21 @@ class ClubFragment : Fragment() {
         return root
     }
 
+    // Convert retrieved Lists from db to strings for TextView display
     private fun listToString(list: List<*>): String {
         val listText = StringBuilder()
         list.forEach {listItem ->
             listText.appendLine(listItem)
+        }
+        return listText.toString()
+    }
+
+    // Modified listToString() for membership info
+    private fun membershipInfoToString(membershipFee: String, membershipBenefits: List<*>): String {
+        val listText = StringBuilder()
+        listText.appendLine(membershipFee)
+        membershipBenefits.forEach {benefit ->
+            listText.appendLine("- $benefit")
         }
         return listText.toString()
     }

@@ -5,8 +5,9 @@
     <dimen name="button_length">165dp</dimen>
     <dimen name="button_height">60dp</dimen>
     <dimen name="category_tiles_margin_bottom">18dp</dimen>
-    <dimen name="club_section_margin_bottom">18dp</dimen>
-    <dimen name="club_label_margin_top">2.5dp</dimen>
+    <dimen name="club_section_single_margin_bottom">18dp</dimen>
+    <dimen name="club_section_multi_margin_bottom">0dp</dimen>
+    <dimen name="club_label_margin_top">2dp</dimen>
     <dimen name="club_label_margin_end">20dp</dimen>
     <dimen name="club_text_width">318dp</dimen>
 </resources>
