@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
@@ -72,6 +76,20 @@ class ClubFragment : Fragment() {
                                 fragmentTransaction.commit()
                             }
 
+                            val user = Firebase.auth.currentUser
+                            val iMail = user?.email
+                            val studentId = iMail?.substringBefore("@")
+                            val memberList = document.get("member_list") as List<*>
+
+                            // Student is not a member
+                            if (studentId !in memberList) {
+                                setJoinListener(root.club_join_button, clubRef, studentId)
+                            }
+                            // Student is a member
+                            else {
+                                setLeaveListener(root.club_join_button, clubRef, studentId)
+                            }
+
                         } else {
                             Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
                         }
@@ -102,6 +120,44 @@ class ClubFragment : Fragment() {
             listText.appendLine("- $benefit")
         }
         return listText.toString()
+    }
+
+    private fun setJoinListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+
+        clubJoinButton.text = getString(R.string.join)
+
+        clubJoinButton.club_join_button.setOnClickListener {
+
+            clubRef.update("member_list", FieldValue.arrayUnion(studentId))
+                .addOnSuccessListener {
+                    Toast.makeText(activity, "Join Success", Toast.LENGTH_SHORT).show()
+                    setLeaveListener(clubJoinButton, clubRef, studentId)
+                }
+                .addOnFailureListener {
+                    Toast.makeText(activity, "Join Fail", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
+    }
+
+    private fun setLeaveListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+
+        clubJoinButton.text = getString(R.string.leave)
+
+        clubJoinButton.setOnClickListener {
+
+            clubRef.update("member_list", FieldValue.arrayRemove(studentId))
+                .addOnSuccessListener {
+                    Toast.makeText(activity, "Leave Success", Toast.LENGTH_SHORT).show()
+                    setJoinListener(clubJoinButton, clubRef, studentId)
+                }
+                .addOnFailureListener {
+                    Toast.makeText(activity, "Leave Fail", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
     }
 
 }
