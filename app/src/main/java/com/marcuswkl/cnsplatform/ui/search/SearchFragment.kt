@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.search.leadership.LeadershipFragment
 import kotlinx.android.synthetic.main.fragment_search.view.*
+import java.util.*
 
 class SearchFragment : Fragment() {
 
@@ -34,8 +37,20 @@ class SearchFragment : Fragment() {
 
                         // Perform action
 
-                        val query = root.search_field.text
-                        Toast.makeText(activity, "$query", Toast.LENGTH_SHORT).show()
+                        val query = root.search_field.text.toString().capitalize(Locale.ROOT)
+                        val db = Firebase.firestore
+
+                        val clubsRef = db.collection("clubs")
+                        clubsRef.whereGreaterThanOrEqualTo("name", query)
+                            .get()
+                            .addOnSuccessListener { documents ->
+                                for (document in documents) {
+                                    Toast.makeText(activity, document.id, Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                            .addOnFailureListener { exception ->
+                                Toast.makeText(activity, "Error Getting Documents", Toast.LENGTH_SHORT).show()
+                            }
 
                         return true
 
