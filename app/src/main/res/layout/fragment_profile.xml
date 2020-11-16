@@ -84,17 +84,16 @@
                 android:translationX="161dp">
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/male_radio_button"
                     style="@style/RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:checked="true"
                     android:clickable="false"
                     android:text="@string/male" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/female_radio_button"
                     style="@style/RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
