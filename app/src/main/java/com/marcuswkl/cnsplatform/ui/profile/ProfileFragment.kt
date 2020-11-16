@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.login.LoginActivity
@@ -29,7 +31,42 @@ class ProfileFragment : Fragment() {
             ViewModelProvider(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
+        val db = Firebase.firestore
+
         auth = Firebase.auth
+
+        val user = Firebase.auth.currentUser
+        val iMail = user?.email
+        val studentId = iMail?.substringBefore("@")
+
+        val userRef = db.collection("students").document("$studentId")
+        userRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+
+                    root.student_id_field.text = document.getString("student_id")
+                    root.full_name_field.text = document.getString("full_name")
+
+                    val gender = document.getString("gender")
+                    if (gender.equals("male")) {
+                        root.gender_radio_group.check(R.id.male_radio_button)
+                    } else {
+                        root.gender_radio_group.check(R.id.female_radio_button)
+                    }
+
+                    root.ic_number_field.text = document.getString("ic_number")
+                    root.phone_number_field.text = document.getString("phone_number")
+                    root.programme_field.text = document.getString("programme")
+                    root.intake_field.text = document.getString("intake")
+
+                } else {
+                    Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+            }
+
 
         root.logout_button.setOnClickListener {
             logOut()
