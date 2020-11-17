@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
 
-class SearchAdapter(private val searchResults: Array<String>) :
+class SearchAdapter(private val searchResults: MutableList<String>) :
         RecyclerView.Adapter<SearchAdapter.ResultViewHolder>() {
 
     // Reference to custom ViewHolder

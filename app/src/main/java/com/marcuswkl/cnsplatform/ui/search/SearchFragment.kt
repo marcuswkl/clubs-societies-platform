@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
@@ -18,6 +19,8 @@ import java.util.*
 class SearchFragment : Fragment() {
 
     private lateinit var searchViewModel: SearchViewModel
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var searchAdapter: SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,9 +47,18 @@ class SearchFragment : Fragment() {
                         clubsRef.whereGreaterThanOrEqualTo("name", query)
                             .get()
                             .addOnSuccessListener { documents ->
+                                val searchResults: MutableList<String> = mutableListOf()
                                 for (document in documents) {
-                                    Toast.makeText(activity, document.getString("name"), Toast.LENGTH_SHORT).show()
+                                    document.getString("name")?.let { searchResults.add(it) }
                                 }
+
+                                val resultRecyclerView = root.result_recycler_view
+                                linearLayoutManager = LinearLayoutManager(activity)
+                                resultRecyclerView.layoutManager = linearLayoutManager
+
+                                searchAdapter = SearchAdapter(searchResults)
+                                resultRecyclerView.adapter = searchAdapter
+
                             }
                             .addOnFailureListener { exception ->
                                 Toast.makeText(activity, "Error Getting Documents", Toast.LENGTH_SHORT).show()
