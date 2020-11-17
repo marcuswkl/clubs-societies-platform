@@ -6,7 +6,7 @@
     android:layout_marginBottom="5dp">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/search_result"
         style="@style/ClubInfoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -12,11 +12,11 @@ class SearchAdapter(private val searchResults: MutableList<String>) :
 
     // Reference to custom ViewHolder
     class ResultViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView
+        val resultTextView: TextView
 
         init {
             // Define click listener for the ViewHolder's View
-            textView = view.findViewById(R.id.textView)
+            resultTextView = view.findViewById(R.id.search_result)
         }
     }
 
@@ -32,7 +32,7 @@ class SearchAdapter(private val searchResults: MutableList<String>) :
     // Associates ViewHolder with data (replace view contents)
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         // Get data and replace view content
-        holder.textView.text = searchResults[position]
+        holder.resultTextView.text = searchResults[position]
     }
 
     // Get the size of the data set
