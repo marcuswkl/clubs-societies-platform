@@ -34,13 +34,29 @@
         app:layout_constraintEnd_toEndOf="@+id/search_field"
         app:layout_constraintTop_toTopOf="@+id/search_field" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/result_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="550dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="71dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_field" />
+
     <ScrollView
-        android:id="@+id/categoryTiles"
+        android:id="@+id/category_tiles_scrollview"
         android:layout_width="wrap_content"
         android:layout_height="550dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="71dp"
         android:scrollbarThumbVertical="@android:color/transparent"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
