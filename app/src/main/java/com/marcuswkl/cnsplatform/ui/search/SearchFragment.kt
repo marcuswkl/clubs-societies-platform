@@ -1,10 +1,9 @@
 package com.marcuswkl.cnsplatform.ui.search
 
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -38,7 +37,8 @@ class SearchFragment : Fragment() {
                     // When Enter key is pressed
                     if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
 
-                        // Perform action
+                        root.category_tiles_scrollview.visibility = View.INVISIBLE
+                        root.result_recycler_view.visibility = View.VISIBLE
 
                         val query = root.search_field.text.toString().capitalize(Locale.ROOT)
                         val db = Firebase.firestore
@@ -61,7 +61,7 @@ class SearchFragment : Fragment() {
 
                             }
                             .addOnFailureListener { exception ->
-                                Toast.makeText(activity, "Error Getting Documents", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(activity, "Search Failed", Toast.LENGTH_SHORT).show()
                             }
 
                         return true
@@ -73,6 +73,19 @@ class SearchFragment : Fragment() {
 
             }
 
+        })
+
+        root.search_field.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s.toString().isEmpty()) {
+                    root.result_recycler_view.visibility = View.INVISIBLE
+                    root.category_tiles_scrollview.visibility = View.VISIBLE
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun afterTextChanged(s: Editable?) {
+            }
         })
 
         root.leadership_tile.setOnClickListener {
