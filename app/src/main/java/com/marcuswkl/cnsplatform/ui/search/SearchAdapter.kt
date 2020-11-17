@@ -4,8 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
+import com.marcuswkl.cnsplatform.ui.club.ClubFragment
 
 class SearchAdapter(private val searchResults: MutableList<String>) :
         RecyclerView.Adapter<SearchAdapter.ResultViewHolder>() {
@@ -33,6 +36,20 @@ class SearchAdapter(private val searchResults: MutableList<String>) :
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         // Get data and replace view content
         holder.resultTextView.text = searchResults[position]
+        holder.resultTextView.setOnClickListener(object: View.OnClickListener {
+            override fun onClick(v: View?) {
+
+                val activity = v?.context as AppCompatActivity
+                val fragmentManager = activity.supportFragmentManager
+
+                val clubFragment = ClubFragment()
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.replace(R.id.search_fragment, clubFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+
+            }
+        })
     }
 
     // Get the size of the data set
