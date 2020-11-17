@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
                             .get()
                             .addOnSuccessListener { documents ->
                                 for (document in documents) {
-                                    Toast.makeText(activity, document.id, Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(activity, document.getString("name"), Toast.LENGTH_SHORT).show()
                                 }
                             }
                             .addOnFailureListener { exception ->
