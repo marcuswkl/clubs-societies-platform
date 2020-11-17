@@ -10,7 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.marcuswkl.cnsplatform.MainActivity
 import com.marcuswkl.cnsplatform.R
+import com.marcuswkl.cnsplatform.Utils
 import com.marcuswkl.cnsplatform.ui.search.leadership.LeadershipFragment
 import kotlinx.android.synthetic.main.fragment_search.view.*
 import java.util.*
@@ -30,6 +32,8 @@ class SearchFragment : Fragment() {
             ViewModelProvider(this).get(SearchViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_search, container, false)
 
+        val utils = Utils()
+
         root.search_field.setOnKeyListener(object : View.OnKeyListener {
             override fun onKey(v: View?, keyCode: Int, event: KeyEvent?): Boolean {
 
@@ -37,6 +41,7 @@ class SearchFragment : Fragment() {
                     // When Enter key is pressed
                     if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
 
+                        activity?.let { utils.hideKeyboard(it) }
                         root.category_tiles_scrollview.visibility = View.INVISIBLE
                         root.result_recycler_view.visibility = View.VISIBLE
 
@@ -82,6 +87,7 @@ class SearchFragment : Fragment() {
         root.search_field.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().isEmpty()) {
+                    activity?.let { utils.hideKeyboard(it) }
                     root.result_recycler_view.visibility = View.INVISIBLE
                     root.category_tiles_scrollview.visibility = View.VISIBLE
                 }
