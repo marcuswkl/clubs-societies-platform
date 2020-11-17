@@ -24,7 +24,7 @@ class SearchAdapter(private val searchResults: Array<String>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Create View (list item) for ViewHolder
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout_text_row_item, viewGroup, false)
+            .inflate(R.layout.text_row_item, viewGroup, false)
 
         return ViewHolder(view)
     }
