@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
 
 class SearchAdapter(private val searchResults: Array<String>) :
-        RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+        RecyclerView.Adapter<SearchAdapter.ResultViewHolder>() {
 
     // Reference to custom ViewHolder
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ResultViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
 
         init {
@@ -21,18 +21,18 @@ class SearchAdapter(private val searchResults: Array<String>) :
     }
 
     // Creates ViewHolder and its associated View
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
         // Create View (list item) for ViewHolder
-        val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.text_row_item, viewGroup, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.search_item, parent, false)
 
-        return ViewHolder(view)
+        return ResultViewHolder(view)
     }
 
     // Associates ViewHolder with data (replace view contents)
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         // Get data and replace view content
-        viewHolder.textView.text = searchResults[position]
+        holder.textView.text = searchResults[position]
     }
 
     // Get the size of the data set
