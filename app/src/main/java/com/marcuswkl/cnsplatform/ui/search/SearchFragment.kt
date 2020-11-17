@@ -47,16 +47,20 @@ class SearchFragment : Fragment() {
                         clubsRef.whereGreaterThanOrEqualTo("name", query)
                             .get()
                             .addOnSuccessListener { documents ->
+
                                 val searchResults: MutableList<String> = mutableListOf()
+                                val searchResultIds: MutableList<String> = mutableListOf()
+
                                 for (document in documents) {
                                     document.getString("name")?.let { searchResults.add(it) }
+                                    document.id.let { searchResultIds.add(it) }
                                 }
 
                                 val resultRecyclerView = root.result_recycler_view
                                 linearLayoutManager = LinearLayoutManager(activity)
                                 resultRecyclerView.layoutManager = linearLayoutManager
 
-                                searchAdapter = SearchAdapter(searchResults)
+                                searchAdapter = SearchAdapter(searchResults, searchResultIds)
                                 resultRecyclerView.adapter = searchAdapter
 
                             }

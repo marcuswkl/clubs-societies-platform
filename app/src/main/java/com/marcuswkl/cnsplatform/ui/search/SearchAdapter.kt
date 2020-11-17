@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.club.ClubFragment
 
-class SearchAdapter(private val searchResults: MutableList<String>) :
+class SearchAdapter(private val searchResults: MutableList<String>, private val searchResultIds: MutableList<String>) :
         RecyclerView.Adapter<SearchAdapter.ResultViewHolder>() {
 
     // Reference to custom ViewHolder
@@ -41,6 +41,9 @@ class SearchAdapter(private val searchResults: MutableList<String>) :
 
                 val activity = v?.context as AppCompatActivity
                 val fragmentManager = activity.supportFragmentManager
+
+                val resultId = searchResultIds[position]
+                fragmentManager.setFragmentResult("resultClubId", bundleOf("id" to resultId))
 
                 val clubFragment = ClubFragment()
                 val fragmentTransaction = fragmentManager.beginTransaction()

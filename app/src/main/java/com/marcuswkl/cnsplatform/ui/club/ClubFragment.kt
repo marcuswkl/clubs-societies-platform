@@ -100,6 +100,71 @@ class ClubFragment : Fragment() {
 
         })
 
+        fragmentManager?.setFragmentResultListener(
+            "resultClubId", this, { key, bundle ->
+
+                val resultClubId = bundle.getString("id")
+
+                val clubRef = db.collection("clubs").document("$resultClubId")
+                clubRef.get()
+                    .addOnSuccessListener { document ->
+                        if (document != null) {
+
+                            Picasso.get().load(document.getString("logo")).into(root.club_logo)
+                            root.club_name_title.text = document.getString("name")
+                            root.club_category.text = document.getString("category")
+                            root.club_info.text = document.getString("info")
+                            root.club_past_events.text = document.getString("past_events")
+
+                            val committeeList = document.get("committee_list") as List<*>
+                            root.club_committee_list.text = listToString(committeeList)
+
+                            val meetingInfo = document.get("meeting_info") as List<*>
+                            root.club_meeting_info.text = listToString(meetingInfo)
+
+                            root.club_advisor.text = document.getString("advisor")
+
+                            val membershipFee = document.getDouble("membership_fee")?.toInt()
+                            val membershipFeeText = getString(R.string.membership_fee_text, membershipFee)
+                            val membershipBenefits = document.get("membership_benefits") as List<*>
+                            root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
+
+                            root.club_email.text = document.getString("email")
+                            root.club_tags.text = document.getString("tags")
+
+                            root.club_enquire_button.setOnClickListener {
+                                fragmentManager.setFragmentResult("enquireClubName", bundleOf("name" to resultClubId))
+                                val enquireFragment = EnquireFragment()
+                                val fragmentTransaction = fragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
+                                fragmentTransaction.addToBackStack(null)
+                                fragmentTransaction.commit()
+                            }
+
+                            val user = Firebase.auth.currentUser
+                            val iMail = user?.email
+                            val studentId = iMail?.substringBefore("@")
+                            val memberList = document.get("member_list") as List<*>
+
+                            // Student is not a member
+                            if (studentId !in memberList) {
+                                setJoinListener(root.club_join_button, clubRef, studentId)
+                            }
+                            // Student is a member
+                            else {
+                                setLeaveListener(root.club_join_button, clubRef, studentId)
+                            }
+
+                        } else {
+                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                    }
+
+            })
+
         return root
     }
 
