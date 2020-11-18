@@ -9,15 +9,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.club.ClubFragment
 import com.squareup.picasso.Picasso
+import java.util.*
 
 class HomeAdapter(
-    private val contentPostIds: MutableList<String>,
+    private val postIds: MutableList<String>,
     private val postClubLogos: MutableList<String>,
     private val postClubNameTitles: MutableList<String>,
-    private val postDates: MutableList<String>,
+    private val postDates: MutableList<Date>,
     private val postTextContents: MutableList<String>) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
 
@@ -53,11 +55,11 @@ class HomeAdapter(
         // Get data and replace view content
         Picasso.get().load(postClubLogos[position]).into(holder.postClubLogo);
         holder.postClubNameTitle.text = postClubNameTitles[position]
-        holder.postDate.text = postDates[position]
+        holder.postDate.text = postDates[position].toString()
         holder.postTextContent.text = postTextContents[position]
     }
 
     // Get the size of the data set
-    override fun getItemCount() = contentPostIds.size
+    override fun getItemCount() = postIds.size
 
 }
