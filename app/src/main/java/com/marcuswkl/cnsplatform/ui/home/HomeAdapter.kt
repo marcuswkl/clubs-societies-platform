@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
 import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
@@ -20,6 +22,7 @@ class HomeAdapter(
     private val postTypes: MutableList<String>,
     private val postContentTexts: MutableList<String>,
     private val postContentImages: MutableList<String>,
+    private val postEventIds: MutableList<String>,
     private val postEventImages: MutableList<String>,
     private val postEventTexts: MutableList<String>) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
@@ -94,6 +97,23 @@ class HomeAdapter(
 
             Picasso.get().load(postEventImages[position]).into(holder.postEventImage)
             holder.postEventText.text = postEventTexts[position]
+            /*holder.postViewEventButton.setOnClickListener(object: View.OnClickListener {
+                override fun onClick(v: View?) {
+
+                    val activity = v?.context as AppCompatActivity
+                    val fragmentManager = activity.supportFragmentManager
+
+                    val postEventId = postEventIds[position]
+                    fragmentManager.setFragmentResult("postEventId", bundleOf("id" to postEventId))
+
+                    val eventFragment = EventFragment()
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.replace(R.id.home_fragment, eventFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+
+                }
+            })*/
 
             holder.postEventLayout.visibility = View.VISIBLE
 
