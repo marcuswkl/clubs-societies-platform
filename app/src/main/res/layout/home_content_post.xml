@@ -58,6 +58,7 @@
         android:background="@color/colorCard"
         android:justificationMode="inter_word"
         android:text="TEXT CONTENT"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/post_image_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/post_club_logo"
@@ -71,8 +72,61 @@
         android:layout_marginBottom="15dp"
         android:background="@color/colorCard"
         android:src="@drawable/image_post_placeholder"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/post_club_logo" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorCard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/post_club_logo"
+        app:layout_constraintTop_toBottomOf="@+id/post_club_logo">
+
+        <ImageView
+            android:id="@+id/post_image_event"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorCard"
+            android:src="@drawable/image_post_event_placeholder"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/post_text_event"
+            style="@style/ClubInfoText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="49dp"
+            android:background="@color/colorCard"
+            android:justificationMode="inter_word"
+            android:text="TEXT CONTENT"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/post_view_event_button"
+            app:layout_constraintStart_toEndOf="@+id/post_image_event"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/post_view_event_button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:text="VIEW EVENT"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
