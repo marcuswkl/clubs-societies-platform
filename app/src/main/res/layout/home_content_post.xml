@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/post_club_name_title" />
 
     <TextView
-        android:id="@+id/post_text_content"
+        android:id="@+id/post_content_text"
         style="@style/ClubInfoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -59,13 +59,13 @@
         android:justificationMode="inter_word"
         android:text="TEXT CONTENT"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/post_image_content"
+        app:layout_constraintBottom_toTopOf="@+id/post_content_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/post_club_logo"
         app:layout_constraintTop_toBottomOf="@+id/post_club_logo" />
 
     <ImageView
-        android:id="@+id/post_image_content"
+        android:id="@+id/post_content_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/post_club_logo">
 
         <ImageView
-            android:id="@+id/post_image_event"
+            android:id="@+id/post_event_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/colorCard"
@@ -101,7 +101,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/post_text_event"
+            android:id="@+id/post_event_text"
             style="@style/ClubInfoText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/post_view_event_button"
-            app:layout_constraintStart_toEndOf="@+id/post_image_event"
+            app:layout_constraintStart_toEndOf="@+id/post_event_image"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button

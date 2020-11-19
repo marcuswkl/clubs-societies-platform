@@ -5,24 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import androidx.core.os.bundleOf
 import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.Timestamp
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.club.ClubFragment
 import com.squareup.picasso.Picasso
-import java.util.*
 
 class HomeAdapter(
     private val postIds: MutableList<String>,
     private val postClubLogos: MutableList<String>,
     private val postClubNameTitles: MutableList<String>,
     private val postDates: MutableList<String>,
-    private val postTextContents: MutableList<String>,
-    private val postImageContents: MutableList<String>) :
+    private val postContentTexts: MutableList<String>,
+    private val postContentImages: MutableList<String>) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
 
     // Reference to custom ViewHolder
@@ -30,16 +24,16 @@ class HomeAdapter(
         val postClubLogo: ImageView
         val postClubNameTitle: TextView
         val postDate: TextView
-        val postTextContent: TextView
-        val postImageContent: ImageView
+        val postContentText: TextView
+        val postContentImage: ImageView
 
         init {
             // Define ViewHolder views
             postClubLogo = view.findViewById(R.id.post_club_logo)
             postClubNameTitle = view.findViewById(R.id.post_club_name_title)
             postDate = view.findViewById(R.id.post_date)
-            postTextContent = view.findViewById(R.id.post_text_content)
-            postImageContent = view.findViewById(R.id.post_image_content)
+            postContentText = view.findViewById(R.id.post_content_text)
+            postContentImage = view.findViewById(R.id.post_content_image)
         }
     }
 
@@ -58,12 +52,12 @@ class HomeAdapter(
         Picasso.get().load(postClubLogos[position]).into(holder.postClubLogo)
         holder.postClubNameTitle.text = postClubNameTitles[position]
         holder.postDate.text = postDates[position]
-        holder.postTextContent.text = postTextContents[position]
-        if (postImageContents[position].isEmpty()) {
-            holder.postImageContent.visibility = View.GONE
+        holder.postContentText.text = postContentTexts[position]
+        if (postContentImages[position].isEmpty()) {
+            holder.postContentImage.visibility = View.GONE
         } else {
-            holder.postTextContent.marginBottom
-            Picasso.get().load(postImageContents[position]).into(holder.postImageContent)
+            holder.postContentText.marginBottom
+            Picasso.get().load(postContentImages[position]).into(holder.postContentImage)
         }
     }
 

@@ -4,21 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.Timestamp
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import java.text.DateFormat
-import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -48,8 +42,8 @@ class HomeFragment : Fragment() {
                 val postClubNameTitles: MutableList<String> = mutableListOf()
                 val postIds: MutableList<String> = mutableListOf()
                 val postDates: MutableList<String> = mutableListOf()
-                val postTextContents: MutableList<String> = mutableListOf()
-                val postImageContents: MutableList<String> = mutableListOf()
+                val postContentTexts: MutableList<String> = mutableListOf()
+                val postContentImages: MutableList<String> = mutableListOf()
                 val dateFormat = DateFormat.getDateInstance()
 
                 for (queryDocumentSnapshot in querySnapshot) {
@@ -59,8 +53,8 @@ class HomeFragment : Fragment() {
                     queryDocumentSnapshot.getString("name")?.let { postClubNameTitles.add(it) }
                     val dateData = queryDocumentSnapshot.getTimestamp("timestamp")?.toDate()
                     postDates.add(dateFormat.format(dateData))
-                    queryDocumentSnapshot.getString("text")?.let { postTextContents.add(it) }
-                    queryDocumentSnapshot.getString("image")?.let { postImageContents.add(it) }
+                    queryDocumentSnapshot.getString("text")?.let { postContentTexts.add(it) }
+                    queryDocumentSnapshot.getString("image")?.let { postContentImages.add(it) }
 
                 }
 
@@ -73,8 +67,8 @@ class HomeFragment : Fragment() {
                     postClubLogos,
                     postClubNameTitles,
                     postDates,
-                    postTextContents,
-                    postImageContents
+                    postContentTexts,
+                    postContentImages
                 )
                 postsRecyclerView.adapter = homeAdapter
 
