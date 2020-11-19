@@ -35,6 +35,11 @@
         <item name="android:textColor">@color/colorSecondary</item>
     </style>
 
+    <style name="EventPostText" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
     <style name="InputFieldLabel" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/colorPrimary</item>
