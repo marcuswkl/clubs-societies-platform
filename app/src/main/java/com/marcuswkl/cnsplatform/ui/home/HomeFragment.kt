@@ -38,12 +38,15 @@ class HomeFragment : Fragment() {
         postsRef.get()
             .addOnSuccessListener { querySnapshot ->
 
+                val postIds: MutableList<String> = mutableListOf()
                 val postClubLogos: MutableList<String> = mutableListOf()
                 val postClubNameTitles: MutableList<String> = mutableListOf()
-                val postIds: MutableList<String> = mutableListOf()
                 val postDates: MutableList<String> = mutableListOf()
-                val postContentTexts: MutableList<String> = mutableListOf()
-                val postContentImages: MutableList<String> = mutableListOf()
+
+                val postTypes: MutableList<String> = mutableListOf()
+                val postTexts: MutableList<String> = mutableListOf()
+                val postImages: MutableList<String> = mutableListOf()
+
                 val dateFormat = DateFormat.getDateInstance()
 
                 for (queryDocumentSnapshot in querySnapshot) {
@@ -51,10 +54,21 @@ class HomeFragment : Fragment() {
                     queryDocumentSnapshot.id.let { postIds.add(it) }
                     queryDocumentSnapshot.getString("logo")?.let { postClubLogos.add(it) }
                     queryDocumentSnapshot.getString("name")?.let { postClubNameTitles.add(it) }
+
                     val dateData = queryDocumentSnapshot.getTimestamp("timestamp")?.toDate()
                     postDates.add(dateFormat.format(dateData))
-                    queryDocumentSnapshot.getString("text")?.let { postContentTexts.add(it) }
-                    queryDocumentSnapshot.getString("image")?.let { postContentImages.add(it) }
+
+                    val postType = queryDocumentSnapshot.getString("type")
+                    postType?.let { postTypes.add(it) }
+
+                    if (postType.equals("content")) {
+                        queryDocumentSnapshot.getString("text")?.let { postTexts.add(it) }
+                    } else {
+                        val textList = queryDocumentSnapshot.get("text") as List<*>
+                        postTexts.add(listToString(textList))
+                    }
+
+                    queryDocumentSnapshot.getString("image")?.let { postImages.add(it) }
 
                 }
 
@@ -67,8 +81,9 @@ class HomeFragment : Fragment() {
                     postClubLogos,
                     postClubNameTitles,
                     postDates,
-                    postContentTexts,
-                    postContentImages
+                    postTypes,
+                    postTexts,
+                    postImages
                 )
                 postsRecyclerView.adapter = homeAdapter
 
@@ -76,4 +91,13 @@ class HomeFragment : Fragment() {
 
         return root
     }
+
+    private fun listToString(list: List<*>): String {
+        val listText = StringBuilder()
+        list.forEach {listItem ->
+            listText.appendLine(listItem)
+        }
+        return listText.toString()
+    }
+
 }
