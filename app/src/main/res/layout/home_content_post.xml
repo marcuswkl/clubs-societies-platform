@@ -51,12 +51,14 @@
         android:id="@+id/post_text_content"
         style="@style/ClubInfoText"
         android:layout_width="0dp"
-        android:layout_height="27dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:background="@color/colorCard"
         android:justificationMode="inter_word"
         android:text="TEXT CONTENT"
+        app:layout_constraintBottom_toTopOf="@+id/post_image_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/post_club_logo"
         app:layout_constraintTop_toBottomOf="@+id/post_club_logo" />
@@ -65,14 +67,12 @@
         android:id="@+id/post_image_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:background="@color/colorCard"
         android:src="@drawable/image_post_placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/post_text_content"
-        app:layout_constraintTop_toBottomOf="@+id/post_text_content" />
+        app:layout_constraintStart_toStartOf="@+id/post_club_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

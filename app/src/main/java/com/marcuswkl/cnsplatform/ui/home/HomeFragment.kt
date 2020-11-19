@@ -26,8 +26,6 @@ class HomeFragment : Fragment() {
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var homeAdapter: HomeAdapter
 
-    private lateinit var auth: FirebaseAuth
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -51,6 +49,7 @@ class HomeFragment : Fragment() {
                 val postIds: MutableList<String> = mutableListOf()
                 val postDates: MutableList<String> = mutableListOf()
                 val postTextContents: MutableList<String> = mutableListOf()
+                val postImageContents: MutableList<String> = mutableListOf()
                 val dateFormat = DateFormat.getDateInstance()
 
                 for (queryDocumentSnapshot in querySnapshot) {
@@ -61,6 +60,7 @@ class HomeFragment : Fragment() {
                     val dateData = queryDocumentSnapshot.getTimestamp("timestamp")?.toDate()
                     postDates.add(dateFormat.format(dateData))
                     queryDocumentSnapshot.getString("text")?.let { postTextContents.add(it) }
+                    queryDocumentSnapshot.getString("image")?.let { postImageContents.add(it) }
 
                 }
 
@@ -73,7 +73,8 @@ class HomeFragment : Fragment() {
                     postClubLogos,
                     postClubNameTitles,
                     postDates,
-                    postTextContents
+                    postTextContents,
+                    postImageContents
                 )
                 postsRecyclerView.adapter = homeAdapter
 

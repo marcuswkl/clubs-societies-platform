@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
+import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.Timestamp
 import com.marcuswkl.cnsplatform.R
@@ -20,7 +21,8 @@ class HomeAdapter(
     private val postClubLogos: MutableList<String>,
     private val postClubNameTitles: MutableList<String>,
     private val postDates: MutableList<String>,
-    private val postTextContents: MutableList<String>) :
+    private val postTextContents: MutableList<String>,
+    private val postImageContents: MutableList<String>) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
 
     // Reference to custom ViewHolder
@@ -29,6 +31,7 @@ class HomeAdapter(
         val postClubNameTitle: TextView
         val postDate: TextView
         val postTextContent: TextView
+        val postImageContent: ImageView
 
         init {
             // Define ViewHolder views
@@ -36,6 +39,7 @@ class HomeAdapter(
             postClubNameTitle = view.findViewById(R.id.post_club_name_title)
             postDate = view.findViewById(R.id.post_date)
             postTextContent = view.findViewById(R.id.post_text_content)
+            postImageContent = view.findViewById(R.id.post_image_content)
         }
     }
 
@@ -51,10 +55,16 @@ class HomeAdapter(
     // Associates ViewHolder with data (replace view contents)
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         // Get data and replace view content
-        Picasso.get().load(postClubLogos[position]).into(holder.postClubLogo);
+        Picasso.get().load(postClubLogos[position]).into(holder.postClubLogo)
         holder.postClubNameTitle.text = postClubNameTitles[position]
-        holder.postDate.text = postDates[position].toString()
+        holder.postDate.text = postDates[position]
         holder.postTextContent.text = postTextContents[position]
+        if (postImageContents[position].isEmpty()) {
+            holder.postImageContent.visibility = View.GONE
+        } else {
+            holder.postTextContent.marginBottom
+            Picasso.get().load(postImageContents[position]).into(holder.postImageContent)
+        }
     }
 
     // Get the size of the data set
