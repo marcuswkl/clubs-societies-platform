@@ -19,13 +19,12 @@ class HomeAdapter(
     private val postIds: MutableList<String>,
     private val postClubLogos: MutableList<String>,
     private val postClubNameTitles: MutableList<String>,
-    private val postDates: MutableList<Date>,
+    private val postDates: MutableList<String>,
     private val postTextContents: MutableList<String>) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
 
     // Reference to custom ViewHolder
     class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val contentPost: CardView
         val postClubLogo: ImageView
         val postClubNameTitle: TextView
         val postDate: TextView
@@ -33,7 +32,6 @@ class HomeAdapter(
 
         init {
             // Define ViewHolder views
-            contentPost = view.findViewById(R.id.content_post)
             postClubLogo = view.findViewById(R.id.post_club_logo)
             postClubNameTitle = view.findViewById(R.id.post_club_name_title)
             postDate = view.findViewById(R.id.post_date)

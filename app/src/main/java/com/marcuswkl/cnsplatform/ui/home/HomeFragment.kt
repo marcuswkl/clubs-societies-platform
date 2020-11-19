@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.text.DateFormat
 import java.util.*
 
 class HomeFragment : Fragment() {
@@ -37,22 +39,27 @@ class HomeFragment : Fragment() {
 
         val db = Firebase.firestore
 
-        val postsRef = db.collection("clubs").document("sunwayathleticsclub").collection("posts")
+        val postsRef = db.collectionGroup("posts")
+            .orderBy("timestamp", Query.Direction.DESCENDING)
+            .orderBy("name", Query.Direction.ASCENDING)
+
         postsRef.get()
             .addOnSuccessListener { querySnapshot ->
 
                 val postClubLogos: MutableList<String> = mutableListOf()
                 val postClubNameTitles: MutableList<String> = mutableListOf()
                 val postIds: MutableList<String> = mutableListOf()
-                val postDates: MutableList<Date> = mutableListOf()
+                val postDates: MutableList<String> = mutableListOf()
                 val postTextContents: MutableList<String> = mutableListOf()
+                val dateFormat = DateFormat.getDateInstance()
 
                 for (queryDocumentSnapshot in querySnapshot) {
 
                     queryDocumentSnapshot.id.let { postIds.add(it) }
                     queryDocumentSnapshot.getString("logo")?.let { postClubLogos.add(it) }
                     queryDocumentSnapshot.getString("name")?.let { postClubNameTitles.add(it) }
-                    queryDocumentSnapshot.getTimestamp("timestamp")?.toDate().let { postDates.add(it!!) }
+                    val dateData = queryDocumentSnapshot.getTimestamp("timestamp")?.toDate()
+                    postDates.add(dateFormat.format(dateData))
                     queryDocumentSnapshot.getString("text")?.let { postTextContents.add(it) }
 
                 }
