@@ -6,10 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.os.bundleOf
-import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
 import com.squareup.picasso.Picasso
@@ -20,11 +17,9 @@ class HomeAdapter(
     private val postClubNameTitles: MutableList<String>,
     private val postDates: MutableList<String>,
     private val postTypes: MutableList<String>,
-    private val postContentTexts: MutableList<String>,
-    private val postContentImages: MutableList<String>,
-    private val postEventIds: MutableList<String>,
-    private val postEventImages: MutableList<String>,
-    private val postEventTexts: MutableList<String>) :
+    private val postTexts: MutableList<String>,
+    private val postImages: MutableList<String>
+) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
 
     // Reference to custom ViewHolder
@@ -80,11 +75,11 @@ class HomeAdapter(
         // Check post type
         if (postTypes[position] == "content") {
 
-            holder.postContentText.text = postContentTexts[position]
-            if (postContentImages[position].isEmpty()) {
+            holder.postContentText.text = postTexts[position]
+            if (postImages[position].isEmpty()) {
                 holder.postContentImage.visibility = View.GONE
             } else {
-                Picasso.get().load(postContentImages[position]).into(holder.postContentImage)
+                Picasso.get().load(postImages[position]).into(holder.postContentImage)
             }
 
         }
@@ -95,8 +90,8 @@ class HomeAdapter(
                 holder.postContentImage.visibility = View.GONE
             }
 
-            Picasso.get().load(postEventImages[position]).into(holder.postEventImage)
-            holder.postEventText.text = postEventTexts[position]
+            Picasso.get().load(postImages[position]).into(holder.postEventImage)
+            holder.postEventText.text = postTexts[position]
             /*holder.postViewEventButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
 
