@@ -78,12 +78,14 @@
         app:layout_constraintStart_toStartOf="@+id/post_club_logo" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/post_event_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:background="@color/colorCard"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/post_club_logo"
@@ -95,7 +97,6 @@
             android:layout_height="wrap_content"
             android:background="@color/colorCard"
             android:src="@drawable/image_post_event_placeholder"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -110,7 +111,6 @@
             android:background="@color/colorCard"
             android:justificationMode="inter_word"
             android:text="TEXT CONTENT"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/post_view_event_button"
             app:layout_constraintStart_toEndOf="@+id/post_event_image"

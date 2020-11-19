@@ -3,8 +3,10 @@ package com.marcuswkl.cnsplatform.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
@@ -15,8 +17,11 @@ class HomeAdapter(
     private val postClubLogos: MutableList<String>,
     private val postClubNameTitles: MutableList<String>,
     private val postDates: MutableList<String>,
+    private val postTypes: MutableList<String>,
     private val postContentTexts: MutableList<String>,
-    private val postContentImages: MutableList<String>) :
+    private val postContentImages: MutableList<String>,
+    private val postEventImages: MutableList<String>,
+    private val postEventTexts: MutableList<String>) :
     RecyclerView.Adapter<HomeAdapter.PostViewHolder>() {
 
     // Reference to custom ViewHolder
@@ -24,16 +29,32 @@ class HomeAdapter(
         val postClubLogo: ImageView
         val postClubNameTitle: TextView
         val postDate: TextView
+
+        // Declare content post variables
         val postContentText: TextView
         val postContentImage: ImageView
+
+        // Declare event post variables
+        val postEventImage: ImageView
+        val postEventText: TextView
+        val postViewEventButton: Button
+        val postEventLayout: ConstraintLayout
 
         init {
             // Define ViewHolder views
             postClubLogo = view.findViewById(R.id.post_club_logo)
             postClubNameTitle = view.findViewById(R.id.post_club_name_title)
             postDate = view.findViewById(R.id.post_date)
+
+            // Assign content post variables
             postContentText = view.findViewById(R.id.post_content_text)
             postContentImage = view.findViewById(R.id.post_content_image)
+
+            // Assign event post variables
+            postEventImage = view.findViewById(R.id.post_event_image)
+            postEventText = view.findViewById(R.id.post_event_text)
+            postViewEventButton = view.findViewById(R.id.post_view_event_button)
+            postEventLayout = view.findViewById(R.id.post_event_layout)
         }
     }
 
@@ -52,13 +73,32 @@ class HomeAdapter(
         Picasso.get().load(postClubLogos[position]).into(holder.postClubLogo)
         holder.postClubNameTitle.text = postClubNameTitles[position]
         holder.postDate.text = postDates[position]
-        holder.postContentText.text = postContentTexts[position]
-        if (postContentImages[position].isEmpty()) {
-            holder.postContentImage.visibility = View.GONE
-        } else {
-            holder.postContentText.marginBottom
-            Picasso.get().load(postContentImages[position]).into(holder.postContentImage)
+
+        // Check post type
+        if (postTypes[position] == "content") {
+
+            holder.postContentText.text = postContentTexts[position]
+            if (postContentImages[position].isEmpty()) {
+                holder.postContentImage.visibility = View.GONE
+            } else {
+                Picasso.get().load(postContentImages[position]).into(holder.postContentImage)
+            }
+
         }
+        else {
+
+            holder.postContentText.visibility = View.GONE
+            if (holder.postContentImage.visibility == View.VISIBLE) {
+                holder.postContentImage.visibility = View.GONE
+            }
+
+            Picasso.get().load(postEventImages[position]).into(holder.postEventImage)
+            holder.postEventText.text = postEventTexts[position]
+
+            holder.postEventLayout.visibility = View.VISIBLE
+
+        }
+
     }
 
     // Get the size of the data set
