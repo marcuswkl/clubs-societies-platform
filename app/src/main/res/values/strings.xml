@@ -27,4 +27,6 @@
     <string name="submit">SUBMIT</string>
     <string name="membership_fee_text">RM %d / YEAR</string>
     <string name="register">REGISTER</string>
+    <string name="member_price_text">MEMBERS: RM %d </string>
+    <string name="non_member_price_text">NON-MEMBERS: RM %d </string>
 </resources>

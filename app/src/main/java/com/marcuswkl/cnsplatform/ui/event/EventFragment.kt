@@ -18,6 +18,7 @@ import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.enquire.EnquireFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_club.view.*
+import kotlinx.android.synthetic.main.fragment_event.view.*
 
 class EventFragment : Fragment() {
 
@@ -30,53 +31,47 @@ class EventFragment : Fragment() {
     ): View? {
         eventViewModel =
             ViewModelProvider(this).get(EventViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_club, container, false)
+        val root = inflater.inflate(R.layout.fragment_event, container, false)
 
         val db = Firebase.firestore
 
         val fragmentManager = activity?.supportFragmentManager
         fragmentManager?.setFragmentResultListener(
-            "clubName", this, { key, bundle ->
+            "postEventId", this, { key, bundle ->
 
-                val clubName = bundle.getString("name")
+                val eventId = bundle.getString("id")
+                val eventRef = db.document("$eventId")
 
-                val clubRef = db.collection("clubs").document("$clubName")
-                clubRef.get()
+                eventRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
 
-                            Picasso.get().load(document.getString("logo")).into(root.club_logo)
-                            root.club_name_title.text = document.getString("name")
-                            root.club_category.text = document.getString("category")
-                            root.club_info.text = document.getString("info")
-                            root.club_past_events.text = document.getString("past_events")
+                            Picasso.get().load(document.getString("club_logo")).into(root.event_club_logo)
+                            root.event_club_name_title.text = document.getString("club_name")
+                            root.event_name_title.text = document.getString("event_name")
+                            Picasso.get().load(document.getString("poster")).into(root.event_poster)
+                            root.event_date.text = document.getString("date")
+                            root.event_time.text = document.getString("time")
+                            root.event_venue.text = document.getString("venue")
 
-                            val committeeList = document.get("committee_list") as List<*>
-                            root.club_committee_list.text = listToString(committeeList)
+                            val memberPrice = document.getDouble("member_price")?.toInt()
+                            val memberPriceText = getString(R.string.member_price_text, memberPrice)
+                            val priceText = StringBuilder()
+                            priceText.appendLine(memberPriceText)
 
-                            val meetingInfo = document.get("meeting_info") as List<*>
-                            root.club_meeting_info.text = listToString(meetingInfo)
+                            val isMemberOnly = document.getBoolean("is_member_only")
 
-                            root.club_advisor.text = document.getString("advisor")
-
-                            val membershipFee = document.getDouble("membership_fee")?.toInt()
-                            val membershipFeeText = getString(R.string.membership_fee_text, membershipFee)
-                            val membershipBenefits = document.get("membership_benefits") as List<*>
-                            root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
-
-                            root.club_email.text = document.getString("email")
-                            root.club_tags.text = document.getString("tags")
-
-                            root.club_enquire_button.setOnClickListener {
-                                fragmentManager.setFragmentResult("enquireClubName", bundleOf("name" to clubName))
-                                val enquireFragment = EnquireFragment()
-                                val fragmentTransaction = fragmentManager.beginTransaction()
-                                fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
-                                fragmentTransaction.addToBackStack(null)
-                                fragmentTransaction.commit()
+                            if (!isMemberOnly!!) {
+                                val nonMemberPrice = document.getDouble("non_member_price")?.toInt()
+                                val nonMemberPriceText = getString(R.string.non_member_price_text, nonMemberPrice)
+                                priceText.appendLine(nonMemberPriceText)
                             }
 
-                            val user = Firebase.auth.currentUser
+                            root.event_price.text = priceText.toString()
+
+                            root.event_info.text = document.getString("info")
+
+                            /*val user = Firebase.auth.currentUser
                             val iMail = user?.email
                             val studentId = iMail?.substringBefore("@")
                             val memberList = document.get("member_list") as List<*>
@@ -88,7 +83,7 @@ class EventFragment : Fragment() {
                             // Student is a member
                             else {
                                 setLeaveListener(root.club_join_button, clubRef, studentId)
-                            }
+                            }*/
 
                         } else {
                             Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
@@ -100,94 +95,10 @@ class EventFragment : Fragment() {
 
         })
 
-        fragmentManager?.setFragmentResultListener(
-            "resultClubId", this, { key, bundle ->
-
-                val resultClubId = bundle.getString("id")
-
-                val clubRef = db.collection("clubs").document("$resultClubId")
-                clubRef.get()
-                    .addOnSuccessListener { document ->
-                        if (document != null) {
-
-                            Picasso.get().load(document.getString("logo")).into(root.club_logo)
-                            root.club_name_title.text = document.getString("name")
-                            root.club_category.text = document.getString("category")
-                            root.club_info.text = document.getString("info")
-                            root.club_past_events.text = document.getString("past_events")
-
-                            val committeeList = document.get("committee_list") as List<*>
-                            root.club_committee_list.text = listToString(committeeList)
-
-                            val meetingInfo = document.get("meeting_info") as List<*>
-                            root.club_meeting_info.text = listToString(meetingInfo)
-
-                            root.club_advisor.text = document.getString("advisor")
-
-                            val membershipFee = document.getDouble("membership_fee")?.toInt()
-                            val membershipFeeText = getString(R.string.membership_fee_text, membershipFee)
-                            val membershipBenefits = document.get("membership_benefits") as List<*>
-                            root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
-
-                            root.club_email.text = document.getString("email")
-                            root.club_tags.text = document.getString("tags")
-
-                            root.club_enquire_button.setOnClickListener {
-                                fragmentManager.setFragmentResult("enquireClubName", bundleOf("name" to resultClubId))
-                                val enquireFragment = EnquireFragment()
-                                val fragmentTransaction = fragmentManager.beginTransaction()
-                                fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
-                                fragmentTransaction.addToBackStack(null)
-                                fragmentTransaction.commit()
-                            }
-
-                            val user = Firebase.auth.currentUser
-                            val iMail = user?.email
-                            val studentId = iMail?.substringBefore("@")
-                            val memberList = document.get("member_list") as List<*>
-
-                            // Student is not a member
-                            if (studentId !in memberList) {
-                                setJoinListener(root.club_join_button, clubRef, studentId)
-                            }
-                            // Student is a member
-                            else {
-                                setLeaveListener(root.club_join_button, clubRef, studentId)
-                            }
-
-                        } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                    .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
-                    }
-
-            })
-
         return root
     }
 
-    // Convert retrieved Lists from db to strings for TextView display
-    private fun listToString(list: List<*>): String {
-        val listText = StringBuilder()
-        list.forEach {listItem ->
-            listText.appendLine(listItem)
-        }
-        return listText.toString()
-    }
-
-    // Modified listToString() for membership info
-    private fun membershipInfoToString(membershipFee: String, membershipBenefits: List<*>): String {
-        val listText = StringBuilder()
-        listText.appendLine(membershipFee)
-        membershipBenefits.forEach {benefit ->
-            listText.appendLine("- $benefit")
-        }
-        return listText.toString()
-    }
-
-    private fun setJoinListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+    /*private fun setJoinListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
 
         clubJoinButton.text = getString(R.string.join)
 
@@ -223,6 +134,6 @@ class EventFragment : Fragment() {
 
         }
 
-    }
+    }*/
 
 }
