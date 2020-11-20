@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
         postsRef.get()
             .addOnSuccessListener { querySnapshot ->
 
+                val clubIds: MutableList<String> = mutableListOf()
                 val postIds: MutableList<String> = mutableListOf()
                 val postClubLogos: MutableList<String> = mutableListOf()
                 val postClubNameTitles: MutableList<String> = mutableListOf()
@@ -51,6 +52,7 @@ class HomeFragment : Fragment() {
 
                 for (queryDocumentSnapshot in querySnapshot) {
 
+                    queryDocumentSnapshot.getString("club_id")?.let { clubIds.add(it) }
                     queryDocumentSnapshot.id.let { postIds.add(it) }
                     queryDocumentSnapshot.getString("logo")?.let { postClubLogos.add(it) }
                     queryDocumentSnapshot.getString("name")?.let { postClubNameTitles.add(it) }
@@ -77,6 +79,7 @@ class HomeFragment : Fragment() {
                 postsRecyclerView.layoutManager = linearLayoutManager
 
                 homeAdapter = HomeAdapter(
+                    clubIds,
                     postIds,
                     postClubLogos,
                     postClubNameTitles,

@@ -37,10 +37,12 @@ class EventFragment : Fragment() {
 
         val fragmentManager = activity?.supportFragmentManager
         fragmentManager?.setFragmentResultListener(
-            "postEventId", this, { key, bundle ->
+            "postClubEventIds", this, { key, bundle ->
 
-                val eventId = bundle.getString("id")
-                val eventRef = db.document("$eventId")
+                val clubId = bundle.getString("clubId")
+                val eventId = bundle.getString("eventId")
+                val eventRef = db.collection("clubs").document("$clubId")
+                    .collection("events").document("$eventId")
 
                 eventRef.get()
                     .addOnSuccessListener { document ->

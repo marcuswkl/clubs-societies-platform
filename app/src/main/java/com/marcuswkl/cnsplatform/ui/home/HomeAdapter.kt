@@ -6,12 +6,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
+import com.marcuswkl.cnsplatform.ui.event.EventFragment
 import com.squareup.picasso.Picasso
 
 class HomeAdapter(
+    private val clubIds: MutableList<String>,
     private val postIds: MutableList<String>,
     private val postClubLogos: MutableList<String>,
     private val postClubNameTitles: MutableList<String>,
@@ -92,14 +96,15 @@ class HomeAdapter(
 
             Picasso.get().load(postImages[position]).into(holder.postEventImage)
             holder.postEventText.text = postTexts[position]
-            /*holder.postViewEventButton.setOnClickListener(object: View.OnClickListener {
+            holder.postViewEventButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
 
                     val activity = v?.context as AppCompatActivity
                     val fragmentManager = activity.supportFragmentManager
 
-                    val postEventId = postEventIds[position]
-                    fragmentManager.setFragmentResult("postEventId", bundleOf("id" to postEventId))
+                    val postClubId = clubIds[position]
+                    val postEventId = postIds[position]
+                    fragmentManager.setFragmentResult("postClubEventIds", bundleOf("clubId" to postClubId, "eventId" to postEventId))
 
                     val eventFragment = EventFragment()
                     val fragmentTransaction = fragmentManager.beginTransaction()
@@ -108,7 +113,7 @@ class HomeAdapter(
                     fragmentTransaction.commit()
 
                 }
-            })*/
+            })
 
             holder.postEventLayout.visibility = View.VISIBLE
 

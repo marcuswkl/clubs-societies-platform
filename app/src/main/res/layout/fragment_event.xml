@@ -12,7 +12,6 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="30dp"
         android:src="@drawable/logo_club_placeholder"
         app:layout_constraintBottom_toTopOf="@id/event_name_title"
         app:layout_constraintStart_toStartOf="parent"
