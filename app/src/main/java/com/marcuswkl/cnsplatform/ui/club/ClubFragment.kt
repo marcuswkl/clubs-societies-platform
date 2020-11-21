@@ -79,6 +79,7 @@ class ClubFragment : Fragment() {
                             val user = Firebase.auth.currentUser
                             val iMail = user?.email
                             val studentId = iMail?.substringBefore("@")
+
                             val memberList = document.get("member_list") as List<*>
 
                             // Student is not a member
@@ -88,6 +89,17 @@ class ClubFragment : Fragment() {
                             // Student is a member
                             else {
                                 setLeaveListener(root.club_join_button, clubRef, studentId)
+                            }
+
+                            val followList = document.get("follow_list") as List<*>
+
+                            // Student is not a follower
+                            if (studentId !in followList) {
+                                setFollowListener(root.club_follow_button, clubRef, studentId)
+                            }
+                            // Student is a follower
+                            else {
+                                setUnfollowListener(root.club_follow_button, clubRef, studentId)
                             }
 
                         } else {
@@ -144,6 +156,7 @@ class ClubFragment : Fragment() {
                             val user = Firebase.auth.currentUser
                             val iMail = user?.email
                             val studentId = iMail?.substringBefore("@")
+
                             val memberList = document.get("member_list") as List<*>
 
                             // Student is not a member
@@ -153,6 +166,17 @@ class ClubFragment : Fragment() {
                             // Student is a member
                             else {
                                 setLeaveListener(root.club_join_button, clubRef, studentId)
+                            }
+
+                            val followList = document.get("follow_list") as List<*>
+
+                            // Student is not a follower
+                            if (studentId !in followList) {
+                                setFollowListener(root.club_follow_button, clubRef, studentId)
+                            }
+                            // Student is a follower
+                            else {
+                                setUnfollowListener(root.club_follow_button, clubRef, studentId)
                             }
 
                         } else {
@@ -191,7 +215,7 @@ class ClubFragment : Fragment() {
 
         clubJoinButton.text = getString(R.string.join)
 
-        clubJoinButton.club_join_button.setOnClickListener {
+        clubJoinButton.setOnClickListener {
 
             clubRef.update("member_list", FieldValue.arrayUnion(studentId))
                 .addOnSuccessListener {
@@ -219,6 +243,44 @@ class ClubFragment : Fragment() {
                 }
                 .addOnFailureListener {
                     Toast.makeText(activity, "Leave Fail", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
+    }
+
+    private fun setFollowListener(clubFollowButton: Button, clubRef: DocumentReference, studentId: String?) {
+
+        clubFollowButton.text = getString(R.string.follow)
+
+        clubFollowButton.setOnClickListener {
+
+            clubRef.update("follow_list", FieldValue.arrayUnion(studentId))
+                .addOnSuccessListener {
+                    Toast.makeText(activity, "Follow Success", Toast.LENGTH_SHORT).show()
+                    setUnfollowListener(clubFollowButton, clubRef, studentId)
+                }
+                .addOnFailureListener {
+                    Toast.makeText(activity, "Follow Fail", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
+    }
+
+    private fun setUnfollowListener(clubFollowButton: Button, clubRef: DocumentReference, studentId: String?) {
+
+        clubFollowButton.text = getString(R.string.unfollow)
+
+        clubFollowButton.setOnClickListener {
+
+            clubRef.update("follow_list", FieldValue.arrayRemove(studentId))
+                .addOnSuccessListener {
+                    Toast.makeText(activity, "Unfollow Success", Toast.LENGTH_SHORT).show()
+                    setFollowListener(clubFollowButton, clubRef, studentId)
+                }
+                .addOnFailureListener {
+                    Toast.makeText(activity, "Unfollow Fail", Toast.LENGTH_SHORT).show()
                 }
 
         }

@@ -20,6 +20,7 @@
     <string name="log_out">LOGOUT</string>
     <string name="student_leadership_bodies">STUDENT LEADERSHIP BODIES</string>
     <string name="follow">FOLLOW</string>
+    <string name="unfollow">UNFOLLOW</string>
     <string name="enquire">ENQUIRE</string>
     <string name="join">JOIN</string>
     <string name="leave">LEAVE</string>
