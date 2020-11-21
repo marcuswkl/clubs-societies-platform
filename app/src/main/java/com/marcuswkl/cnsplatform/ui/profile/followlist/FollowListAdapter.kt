@@ -1,12 +1,20 @@
 package com.marcuswkl.cnsplatform.ui.profile.followlist
 
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.squareup.picasso.Picasso
 
@@ -50,6 +58,23 @@ class FollowListAdapter(
             override fun onClick(v: View?) {
 
                 // Set Button behaviour
+                val db = Firebase.firestore
+
+                val user = Firebase.auth.currentUser
+                val iMail = user?.email
+                val studentId = iMail?.substringBefore("@")
+
+                val followListRef =
+                    db.collection("students").document("$studentId").collection("follow_list")
+
+                followListRef.document(clubIds[position]).delete()
+                setFollowListener(
+                    holder.unfollowButton,
+                    followListRef,
+                    clubIds[position],
+                    clubLogos[position],
+                    clubNames[position]
+                )
 
             }
         })
@@ -58,5 +83,48 @@ class FollowListAdapter(
 
     // Get the size of the data set
     override fun getItemCount() = clubIds.size
+
+    private fun setFollowListener(
+        unfollowButton: Button,
+        followListRef: CollectionReference,
+        clubId: String?,
+        clubLogo: String,
+        clubName: String
+    ) {
+
+        unfollowButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+
+                val club = hashMapOf(
+                    "name" to clubName,
+                    "logo" to clubLogo
+                )
+
+                followListRef.document(clubId!!).set(club)
+                setUnfollowListener(unfollowButton, followListRef, clubId, clubLogo, clubName)
+
+            }
+        })
+
+    }
+
+    private fun setUnfollowListener(
+        unfollowButton: Button,
+        followListRef: CollectionReference,
+        clubId: String?,
+        clubLogo: String,
+        clubName: String
+    ) {
+
+        unfollowButton.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+
+                followListRef.document(clubId!!).delete()
+                setFollowListener(unfollowButton, followListRef, clubId, clubLogo, clubName)
+
+            }
+        })
+
+    }
 
 }
