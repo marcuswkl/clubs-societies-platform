@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/rounded"
+    android:backgroundTint="@color/colorCard">
+
+    <ImageView
+        android:id="@+id/follow_list_club_logo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorCard"
+        android:src="@drawable/logo_club_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/follow_list_club_name_title"
+        style="@style/ClubInfoText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/colorCard"
+        android:text="CLUB NAME"
+        app:layout_constraintBottom_toBottomOf="@+id/follow_list_club_logo"
+        app:layout_constraintEnd_toStartOf="@+id/follow_list_unfollow_button"
+        app:layout_constraintStart_toEndOf="@+id/follow_list_club_logo"
+        app:layout_constraintTop_toTopOf="@+id/follow_list_club_logo" />
+
+    <Button
+        android:id="@+id/follow_list_unfollow_button"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/unfollow"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/follow_list_club_name_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
