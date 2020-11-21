@@ -18,7 +18,7 @@ class FollowListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         followListViewModel =
-            ViewModelProvider(this).get(followListViewModel::class.java)
+            ViewModelProvider(this).get(FollowListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_follow_list, container, false)
 
         return root
