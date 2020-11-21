@@ -68,6 +68,10 @@ class FollowListAdapter(
                     db.collection("students").document("$studentId").collection("follow_list")
 
                 followListRef.document(clubIds[position]).delete()
+
+                val followString = "FOLLOW"
+                holder.unfollowButton.text = followString
+
                 setFollowListener(
                     holder.unfollowButton,
                     followListRef,
@@ -95,6 +99,9 @@ class FollowListAdapter(
         unfollowButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
 
+                val unfollowString = "UNFOLLOW"
+                unfollowButton.text = unfollowString
+
                 val club = hashMapOf(
                     "name" to clubName,
                     "logo" to clubLogo
@@ -118,6 +125,9 @@ class FollowListAdapter(
 
         unfollowButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
+
+                val followString = "FOLLOW"
+                unfollowButton.text = followString
 
                 followListRef.document(clubId!!).delete()
                 setFollowListener(unfollowButton, followListRef, clubId, clubLogo, clubName)
