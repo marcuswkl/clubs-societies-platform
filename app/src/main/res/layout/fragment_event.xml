@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/event_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/event_club_logo"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/logo_club_placeholder"
+        app:layout_constraintBottom_toTopOf="@id/event_name_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/event_club_name_title"
+        style="@style/ClubNameTitle"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="CLUB NAME"
+        app:layout_constraintBottom_toBottomOf="@+id/event_club_logo"
+        app:layout_constraintStart_toEndOf="@+id/event_club_logo"
+        app:layout_constraintTop_toTopOf="@+id/event_club_logo" />
+
+    <TextView
+        android:id="@+id/event_name_title"
+        style="@style/InputFieldLabel"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="25dp"
+        android:text="EVENT NAME"
+        app:layout_constraintBottom_toTopOf="@+id/event_info_scrollview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_club_logo" />
+
+    <ScrollView
+        android:id="@+id/event_info_scrollview"
+        android:layout_width="362dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/event_name_title">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/event_poster"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_span="2"
+                    android:src="@drawable/image_post_placeholder" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/event_date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_event_date" />
+
+                <TextView
+                    android:id="@+id/event_date"
+                    style="@style/ClubInfoText"
+                    android:layout_width="@dimen/club_text_width"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="DATE" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/event_time_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_event_time" />
+
+                <TextView
+                    android:id="@+id/event_time"
+                    style="@style/ClubInfoText"
+                    android:layout_width="@dimen/club_text_width"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="TIME" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/event_venue_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_event_venue" />
+
+                <TextView
+                    android:id="@+id/event_venue"
+                    style="@style/ClubInfoText"
+                    android:layout_width="@dimen/club_text_width"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="VENUE" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_multi_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/event_price_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_event_price" />
+
+                <TextView
+                    android:id="@+id/event_price"
+                    style="@style/ClubInfoText"
+                    android:layout_width="@dimen/club_text_width"
+                    android:layout_height="wrap_content"
+                    android:text="PRICE" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/event_info_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/club_label_margin_top"
+                    android:layout_marginEnd="@dimen/club_label_margin_end"
+                    android:src="@drawable/ic_club_info" />
+
+                <TextView
+                    android:id="@+id/event_info"
+                    style="@style/ClubInfoText"
+                    android:layout_width="@dimen/club_text_width"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:text="INFO" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+
+                <Button
+                    android:id="@+id/event_register_button"
+                    android:layout_width="332dp"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_span="2"
+                    android:text="@string/register" />
+
+            </TableRow>
+        </TableLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
