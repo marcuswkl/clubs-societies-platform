@@ -73,19 +73,19 @@ class EventFragment : Fragment() {
 
                             root.event_info.text = document.getString("info")
 
-                            /*val user = Firebase.auth.currentUser
+                            val user = Firebase.auth.currentUser
                             val iMail = user?.email
                             val studentId = iMail?.substringBefore("@")
-                            val memberList = document.get("member_list") as List<*>
+                            val attendeeList = document.get("attendee_list") as List<*>
 
-                            // Student is not a member
-                            if (studentId !in memberList) {
-                                setJoinListener(root.club_join_button, clubRef, studentId)
+                            // Student is not an attendee
+                            if (studentId !in attendeeList) {
+                                setRegisterListener(root.event_register_button, eventRef, studentId)
                             }
-                            // Student is a member
+                            // Student is an attendee
                             else {
-                                setLeaveListener(root.club_join_button, clubRef, studentId)
-                            }*/
+                                setCancelListener(root.event_register_button, eventRef, studentId)
+                            }
 
                         } else {
                             Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
@@ -100,42 +100,42 @@ class EventFragment : Fragment() {
         return root
     }
 
-    /*private fun setJoinListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+    private fun setRegisterListener(eventRegisterButton: Button, eventRef: DocumentReference, studentId: String?) {
 
-        clubJoinButton.text = getString(R.string.join)
+        eventRegisterButton.text = getString(R.string.register)
 
-        clubJoinButton.club_join_button.setOnClickListener {
+        eventRegisterButton.setOnClickListener {
 
-            clubRef.update("member_list", FieldValue.arrayUnion(studentId))
+            eventRef.update("attendee_list", FieldValue.arrayUnion(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Join Success", Toast.LENGTH_SHORT).show()
-                    setLeaveListener(clubJoinButton, clubRef, studentId)
+                    Toast.makeText(activity, "Register Success", Toast.LENGTH_SHORT).show()
+                    setCancelListener(eventRegisterButton, eventRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Join Fail", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Register Fail", Toast.LENGTH_SHORT).show()
                 }
 
         }
 
     }
 
-    private fun setLeaveListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+    private fun setCancelListener(eventRegisterButton: Button, eventRef: DocumentReference, studentId: String?) {
 
-        clubJoinButton.text = getString(R.string.leave)
+        eventRegisterButton.text = getString(R.string.cancel)
 
-        clubJoinButton.setOnClickListener {
+        eventRegisterButton.setOnClickListener {
 
-            clubRef.update("member_list", FieldValue.arrayRemove(studentId))
+            eventRef.update("attendee_list", FieldValue.arrayRemove(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Leave Success", Toast.LENGTH_SHORT).show()
-                    setJoinListener(clubJoinButton, clubRef, studentId)
+                    Toast.makeText(activity, "Cancel Success", Toast.LENGTH_SHORT).show()
+                    setRegisterListener(eventRegisterButton, eventRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Leave Fail", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Cancel Fail", Toast.LENGTH_SHORT).show()
                 }
 
         }
 
-    }*/
+    }
 
 }
