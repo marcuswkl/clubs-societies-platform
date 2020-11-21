@@ -14,6 +14,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.ui.login.LoginActivity
+import com.marcuswkl.cnsplatform.ui.profile.followlist.FollowListFragment
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
@@ -67,6 +68,14 @@ class ProfileFragment : Fragment() {
                 Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
             }
 
+        root.follow_list_button.setOnClickListener {
+            val fragmentManager = activity?.supportFragmentManager
+            val followListFragment = FollowListFragment()
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.profile_fragment, followListFragment)
+            fragmentTransaction?.addToBackStack(null)
+            fragmentTransaction?.commit()
+        }
 
         root.logout_button.setOnClickListener {
             logOut()
