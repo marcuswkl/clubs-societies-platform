@@ -31,4 +31,5 @@
     <string name="cancel">CANCEL</string>
     <string name="member_price_text">MEMBERS: RM %d </string>
     <string name="non_member_price_text">NON-MEMBERS: RM %d </string>
+    <string name="follow_list">FOLLOW LIST</string>
 </resources>
