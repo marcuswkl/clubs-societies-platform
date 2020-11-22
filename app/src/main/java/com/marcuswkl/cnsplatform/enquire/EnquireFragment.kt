@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.enquire
+package com.marcuswkl.cnsplatform.enquire
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -18,26 +17,22 @@ import java.util.*
 
 class EnquireFragment : Fragment() {
 
-    private lateinit var enquireViewModel: EnquireViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        enquireViewModel =
-            ViewModelProvider(this).get(EnquireViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_enquire, container, false)
 
         val db = Firebase.firestore
 
         val fragmentManager = activity?.supportFragmentManager
         fragmentManager?.setFragmentResultListener(
-            "enquireClubName", this, { key, bundle ->
+            "enquireClubId", this, { key, bundle ->
 
-                val enquireClubName = bundle.getString("name")
+                val enquireClubId = bundle.getString("clubId")
 
-                val clubRef = db.collection("clubs").document("$enquireClubName")
+                val clubRef = db.collection("clubs").document("$enquireClubId")
                 clubRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {

@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.event
+package com.marcuswkl.cnsplatform.event
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,31 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.enquire.EnquireFragment
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_club.view.*
 import kotlinx.android.synthetic.main.fragment_event.view.*
 
 class EventFragment : Fragment() {
-
-    private lateinit var eventViewModel: EventViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        eventViewModel =
-            ViewModelProvider(this).get(EventViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_event, container, false)
 
         val db = Firebase.firestore

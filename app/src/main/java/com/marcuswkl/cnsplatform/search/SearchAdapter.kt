@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.search
+package com.marcuswkl.cnsplatform.search
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.club.ClubFragment
+import com.marcuswkl.cnsplatform.club.ClubFragment
 import com.squareup.picasso.Picasso
 
 class SearchAdapter(
@@ -62,8 +62,8 @@ class SearchAdapter(
                 val clubFragment = ClubFragment()
                 val fragmentTransaction = fragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.search_fragment, clubFragment)
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                    .addToBackStack(null)
+                    .commit()
 
             }
         })

@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.profile.followlist
+package com.marcuswkl.cnsplatform.profile.followlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -16,7 +15,6 @@ import kotlinx.android.synthetic.main.fragment_follow_list.view.*
 
 class FollowListFragment : Fragment() {
 
-    private lateinit var followListViewModel: FollowListViewModel
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var followListAdapter: FollowListAdapter
 
@@ -25,8 +23,6 @@ class FollowListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        followListViewModel =
-            ViewModelProvider(this).get(FollowListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_follow_list, container, false)
 
         val db = Firebase.firestore

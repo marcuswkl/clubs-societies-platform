@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.marcuswkl.cnsplatform.ui.login.LoginActivity
+import com.marcuswkl.cnsplatform.login.LoginActivity
 
 class MainMenuActivity : AppCompatActivity() {
 

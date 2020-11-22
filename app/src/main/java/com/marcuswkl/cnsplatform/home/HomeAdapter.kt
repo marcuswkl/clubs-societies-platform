@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.home
+package com.marcuswkl.cnsplatform.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.event.EventFragment
+import com.marcuswkl.cnsplatform.event.EventFragment
 import com.squareup.picasso.Picasso
 
 class HomeAdapter(
@@ -64,7 +64,7 @@ class HomeAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         // Create View (list item) for ViewHolder
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.home_content_post, parent, false)
+            .inflate(R.layout.home_post, parent, false)
 
         return PostViewHolder(view)
     }
@@ -109,8 +109,8 @@ class HomeAdapter(
                     val eventFragment = EventFragment()
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(R.id.home_fragment, eventFragment)
-                    fragmentTransaction.addToBackStack(null)
-                    fragmentTransaction.commit()
+                        .addToBackStack(null)
+                        .commit()
 
                 }
             })

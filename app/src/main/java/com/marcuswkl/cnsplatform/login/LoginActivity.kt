@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.login
+package com.marcuswkl.cnsplatform.login
 
 import android.content.Intent
 import android.os.Bundle
