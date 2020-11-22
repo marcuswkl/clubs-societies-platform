@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.marcuswkl.cnsplatform.MainActivity
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.Utils
 import com.marcuswkl.cnsplatform.ui.search.leadership.LeadershipFragment
@@ -53,19 +52,21 @@ class SearchFragment : Fragment() {
                             .get()
                             .addOnSuccessListener { documents ->
 
-                                val searchResults: MutableList<String> = mutableListOf()
-                                val searchResultIds: MutableList<String> = mutableListOf()
+                                val clubIds: MutableList<String> = mutableListOf()
+                                val clubLogos: MutableList<String> = mutableListOf()
+                                val clubNames: MutableList<String> = mutableListOf()
 
                                 for (document in documents) {
-                                    document.getString("name")?.let { searchResults.add(it) }
-                                    document.id.let { searchResultIds.add(it) }
+                                    document.id.let { clubIds.add(it) }
+                                    document.getString("logo")?.let { clubLogos.add(it) }
+                                    document.getString("name")?.let { clubNames.add(it) }
                                 }
 
                                 val resultRecyclerView = root.result_recycler_view
                                 linearLayoutManager = LinearLayoutManager(activity)
                                 resultRecyclerView.layoutManager = linearLayoutManager
 
-                                searchAdapter = SearchAdapter(searchResults, searchResultIds)
+                                searchAdapter = SearchAdapter(clubIds, clubLogos, clubNames)
                                 resultRecyclerView.adapter = searchAdapter
 
                             }
