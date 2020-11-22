@@ -44,22 +44,22 @@ class SearchFragment : Fragment() {
                         root.category_tiles_scrollview.visibility = View.INVISIBLE
                         root.result_recycler_view.visibility = View.VISIBLE
 
-                        val query = root.search_field.text.toString().capitalize(Locale.ROOT)
+                        val query = root.search_field.text.toString().toLowerCase(Locale.ROOT)
                         val db = Firebase.firestore
 
                         val clubsRef = db.collection("clubs")
-                        clubsRef.whereGreaterThanOrEqualTo("name", query)
+                        clubsRef.whereArrayContains("tags", query)
                             .get()
-                            .addOnSuccessListener { documents ->
+                            .addOnSuccessListener { querySnapshot ->
 
                                 val clubIds: MutableList<String> = mutableListOf()
                                 val clubLogos: MutableList<String> = mutableListOf()
                                 val clubNames: MutableList<String> = mutableListOf()
 
-                                for (document in documents) {
-                                    document.id.let { clubIds.add(it) }
-                                    document.getString("logo")?.let { clubLogos.add(it) }
-                                    document.getString("name")?.let { clubNames.add(it) }
+                                for (queryDocumentSnapshot in querySnapshot) {
+                                    queryDocumentSnapshot.id.let { clubIds.add(it) }
+                                    queryDocumentSnapshot.getString("logo")?.let { clubLogos.add(it) }
+                                    queryDocumentSnapshot.getString("name")?.let { clubNames.add(it) }
                                 }
 
                                 val resultRecyclerView = root.result_recycler_view
