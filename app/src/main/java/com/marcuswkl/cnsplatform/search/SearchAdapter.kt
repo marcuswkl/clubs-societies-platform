@@ -62,8 +62,8 @@ class SearchAdapter(
                 val clubFragment = ClubFragment()
                 val fragmentTransaction = fragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.search_fragment, clubFragment)
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                    .addToBackStack(null)
+                    .commit()
 
             }
         })

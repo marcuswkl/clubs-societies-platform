@@ -31,8 +31,8 @@ class LeadershipFragment : Fragment() {
             val fragmentTransaction = fragmentManager?.beginTransaction()
             if (fragmentTransaction != null) {
                 fragmentTransaction.replace(R.id.leadership_fragment, clubFragment)
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                    .addToBackStack(null)
+                    .commit()
             }
 
         }

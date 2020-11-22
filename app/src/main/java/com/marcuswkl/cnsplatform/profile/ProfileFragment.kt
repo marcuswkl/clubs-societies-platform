@@ -68,8 +68,8 @@ class ProfileFragment : Fragment() {
             val followListFragment = FollowListFragment()
             val fragmentTransaction = fragmentManager?.beginTransaction()
             fragmentTransaction?.replace(R.id.profile_fragment, followListFragment)
-            fragmentTransaction?.addToBackStack(null)
-            fragmentTransaction?.commit()
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
         root.logout_button.setOnClickListener {

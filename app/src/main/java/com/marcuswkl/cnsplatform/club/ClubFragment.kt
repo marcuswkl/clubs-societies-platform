@@ -71,8 +71,8 @@ class ClubFragment : Fragment() {
                                 val enquireFragment = EnquireFragment()
                                 val fragmentTransaction = fragmentManager.beginTransaction()
                                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
-                                fragmentTransaction.addToBackStack(null)
-                                fragmentTransaction.commit()
+                                    .addToBackStack(null)
+                                    .commit()
                             }
 
                             val user = Firebase.auth.currentUser
@@ -151,8 +151,8 @@ class ClubFragment : Fragment() {
                                 val enquireFragment = EnquireFragment()
                                 val fragmentTransaction = fragmentManager.beginTransaction()
                                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
-                                fragmentTransaction.addToBackStack(null)
-                                fragmentTransaction.commit()
+                                    .addToBackStack(null)
+                                    .commit()
                             }
 
                             val user = Firebase.auth.currentUser

@@ -103,8 +103,8 @@ class SearchFragment : Fragment() {
             val fragmentTransaction = fragmentManager?.beginTransaction()
             if (fragmentTransaction != null) {
                 fragmentTransaction.replace(R.id.search_fragment, leadershipFragment)
-                fragmentTransaction.addToBackStack(null)
-                fragmentTransaction.commit()
+                    .addToBackStack(null)
+                    .commit()
             }
         }
 

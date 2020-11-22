@@ -109,8 +109,8 @@ class HomeAdapter(
                     val eventFragment = EventFragment()
                     val fragmentTransaction = fragmentManager.beginTransaction()
                     fragmentTransaction.replace(R.id.home_fragment, eventFragment)
-                    fragmentTransaction.addToBackStack(null)
-                    fragmentTransaction.commit()
+                        .addToBackStack(null)
+                        .commit()
 
                 }
             })
