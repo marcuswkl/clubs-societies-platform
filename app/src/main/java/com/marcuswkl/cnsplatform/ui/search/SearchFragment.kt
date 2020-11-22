@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.marcuswkl.cnsplatform.MainActivity
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.Utils
 import com.marcuswkl.cnsplatform.ui.search.leadership.LeadershipFragment
@@ -45,27 +44,31 @@ class SearchFragment : Fragment() {
                         root.category_tiles_scrollview.visibility = View.INVISIBLE
                         root.result_recycler_view.visibility = View.VISIBLE
 
-                        val query = root.search_field.text.toString().capitalize(Locale.ROOT)
+                        val queryString = root.search_field.text.toString().toLowerCase(Locale.ROOT)
+                        val querySubstrings = queryString.split(" ")
+
                         val db = Firebase.firestore
 
                         val clubsRef = db.collection("clubs")
-                        clubsRef.whereGreaterThanOrEqualTo("name", query)
+                        clubsRef.whereArrayContainsAny("tags", querySubstrings)
                             .get()
-                            .addOnSuccessListener { documents ->
+                            .addOnSuccessListener { querySnapshot ->
 
-                                val searchResults: MutableList<String> = mutableListOf()
-                                val searchResultIds: MutableList<String> = mutableListOf()
+                                val clubIds: MutableList<String> = mutableListOf()
+                                val clubLogos: MutableList<String> = mutableListOf()
+                                val clubNames: MutableList<String> = mutableListOf()
 
-                                for (document in documents) {
-                                    document.getString("name")?.let { searchResults.add(it) }
-                                    document.id.let { searchResultIds.add(it) }
+                                for (queryDocumentSnapshot in querySnapshot) {
+                                    queryDocumentSnapshot.id.let { clubIds.add(it) }
+                                    queryDocumentSnapshot.getString("logo")?.let { clubLogos.add(it) }
+                                    queryDocumentSnapshot.getString("name")?.let { clubNames.add(it) }
                                 }
 
                                 val resultRecyclerView = root.result_recycler_view
                                 linearLayoutManager = LinearLayoutManager(activity)
                                 resultRecyclerView.layoutManager = linearLayoutManager
 
-                                searchAdapter = SearchAdapter(searchResults, searchResultIds)
+                                searchAdapter = SearchAdapter(clubIds, clubLogos, clubNames)
                                 resultRecyclerView.adapter = searchAdapter
 
                             }

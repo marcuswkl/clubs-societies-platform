@@ -115,7 +115,7 @@ class ClubFragment : Fragment() {
         fragmentManager?.setFragmentResultListener(
             "resultClubId", this, { key, bundle ->
 
-                val resultClubId = bundle.getString("id")
+                val resultClubId = bundle.getString("clubId")
 
                 val clubRef = db.collection("clubs").document("$resultClubId")
                 clubRef.get()
