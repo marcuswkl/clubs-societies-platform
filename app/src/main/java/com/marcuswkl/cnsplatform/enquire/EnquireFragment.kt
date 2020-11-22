@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
@@ -50,10 +51,12 @@ class EnquireFragment : Fragment() {
                                     Toast.makeText(activity, "Invalid Message", Toast.LENGTH_SHORT).show()
                                 } else {
 
+                                    root.enquire_field.text.clear()
+
                                     val enquiryData = hashMapOf(
                                         "imail" to iMail,
                                         "message" to message,
-                                        "timestamp" to Timestamp(Date())
+                                        "timestamp" to FieldValue.serverTimestamp()
                                     )
 
                                     clubRef.collection("enquiries")
