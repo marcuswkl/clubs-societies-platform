@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.club
+package com.marcuswkl.cnsplatform.club
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,14 +8,13 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.enquire.EnquireFragment
+import com.marcuswkl.cnsplatform.enquire.EnquireFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_club.view.*
 

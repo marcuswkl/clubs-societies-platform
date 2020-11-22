@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.search
+package com.marcuswkl.cnsplatform.search
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,13 +6,12 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.Utils
-import com.marcuswkl.cnsplatform.ui.search.leadership.LeadershipFragment
+import com.marcuswkl.cnsplatform.search.leadership.LeadershipFragment
 import kotlinx.android.synthetic.main.fragment_search.view.*
 import java.util.*
 

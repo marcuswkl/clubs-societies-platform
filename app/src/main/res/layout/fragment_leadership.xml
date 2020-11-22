@@ -5,7 +5,7 @@
     android:id="@+id/leadership_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.search.leadership.LeadershipFragment">
+    tools:context=".search.leadership.LeadershipFragment">
 
     <TextView
         android:id="@+id/leadership_title"

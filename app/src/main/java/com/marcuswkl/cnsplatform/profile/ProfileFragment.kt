@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.profile
+package com.marcuswkl.cnsplatform.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.login.LoginActivity
-import com.marcuswkl.cnsplatform.ui.profile.followlist.FollowListFragment
+import com.marcuswkl.cnsplatform.login.LoginActivity
+import com.marcuswkl.cnsplatform.profile.followlist.FollowListFragment
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {

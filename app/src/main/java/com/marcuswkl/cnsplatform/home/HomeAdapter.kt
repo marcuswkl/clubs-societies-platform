@@ -1,4 +1,4 @@
-package com.marcuswkl.cnsplatform.ui.home
+package com.marcuswkl.cnsplatform.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.marcuswkl.cnsplatform.R
-import com.marcuswkl.cnsplatform.ui.event.EventFragment
+import com.marcuswkl.cnsplatform.event.EventFragment
 import com.squareup.picasso.Picasso
 
 class HomeAdapter(

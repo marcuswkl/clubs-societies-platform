@@ -5,7 +5,7 @@
     android:id="@+id/follow_list_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.followlist.FollowListFragment">
+    tools:context=".profile.followlist.FollowListFragment">
 
     <TextView
         android:id="@+id/follow_list_title"
