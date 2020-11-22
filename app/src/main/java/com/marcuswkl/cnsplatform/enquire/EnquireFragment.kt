@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
@@ -50,10 +51,12 @@ class EnquireFragment : Fragment() {
                                     Toast.makeText(activity, "Invalid Message", Toast.LENGTH_SHORT).show()
                                 } else {
 
+                                    root.enquire_field.text.clear()
+
                                     val enquiryData = hashMapOf(
                                         "imail" to iMail,
                                         "message" to message,
-                                        "timestamp" to Timestamp(Date())
+                                        "timestamp" to FieldValue.serverTimestamp()
                                     )
 
                                     clubRef.collection("enquiries")
@@ -62,7 +65,7 @@ class EnquireFragment : Fragment() {
                                             Toast.makeText(activity, "Submission Success", Toast.LENGTH_SHORT).show()
                                         }
                                         .addOnFailureListener {
-                                            Toast.makeText(activity, "Submission Fail", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(activity, "Submission Failed", Toast.LENGTH_SHORT).show()
                                         }
 
                                 }
@@ -70,11 +73,11 @@ class EnquireFragment : Fragment() {
                             }
 
                         } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                            // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
             })

@@ -32,8 +32,6 @@ class LoginActivity : AppCompatActivity() {
 
         login.setOnClickListener {
 
-            Toast.makeText(applicationContext, "Login Clicked.", Toast.LENGTH_SHORT).show()
-
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
 
@@ -62,11 +60,11 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(applicationContext, "Login Successful.", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
-                    Toast.makeText(applicationContext, "Login Failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Login Failed", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
             }
@@ -90,14 +88,14 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Invalid Username", Toast.LENGTH_SHORT).show()
             isValid = false
         } else {
-            Toast.makeText(applicationContext, username, Toast.LENGTH_SHORT).show()
+            // Toast.makeText(applicationContext, username, Toast.LENGTH_SHORT).show()
         }
 
         if (password.isEmpty()) {
             Toast.makeText(applicationContext, "Invalid Password", Toast.LENGTH_SHORT).show()
             isValid = false
         } else {
-            Toast.makeText(applicationContext, password, Toast.LENGTH_SHORT).show()
+            // Toast.makeText(applicationContext, password, Toast.LENGTH_SHORT).show()
         }
 
         return isValid

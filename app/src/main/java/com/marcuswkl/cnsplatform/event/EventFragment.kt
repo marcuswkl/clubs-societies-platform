@@ -49,15 +49,28 @@ class EventFragment : Fragment() {
                             root.event_venue.text = document.getString("venue")
 
                             val memberPrice = document.getDouble("member_price")?.toInt()
-                            val memberPriceText = getString(R.string.member_price_text, memberPrice)
+
+                            val memberPriceText = if (memberPrice == 0) {
+                                getString(R.string.member_price_free_text)
+                            } else {
+                                getString(R.string.member_price_text, memberPrice)
+                            }
+
                             val priceText = StringBuilder()
                             priceText.appendLine(memberPriceText)
 
                             val isMemberOnly = document.getBoolean("is_member_only")
 
+                            // Check if event open to non-members
                             if (!isMemberOnly!!) {
                                 val nonMemberPrice = document.getDouble("non_member_price")?.toInt()
-                                val nonMemberPriceText = getString(R.string.non_member_price_text, nonMemberPrice)
+
+                                val nonMemberPriceText = if (nonMemberPrice == 0) {
+                                    getString(R.string.non_member_price_free_text)
+                                } else {
+                                    getString(R.string.non_member_price_text, nonMemberPrice)
+                                }
+
                                 priceText.appendLine(nonMemberPriceText)
                             }
 
@@ -80,11 +93,11 @@ class EventFragment : Fragment() {
                             }
 
                         } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                            // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
         })
@@ -100,11 +113,11 @@ class EventFragment : Fragment() {
 
             eventRef.update("attendee_list", FieldValue.arrayUnion(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Register Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Register Success", Toast.LENGTH_SHORT).show()
                     setCancelListener(eventRegisterButton, eventRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Register Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Register Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -119,11 +132,11 @@ class EventFragment : Fragment() {
 
             eventRef.update("attendee_list", FieldValue.arrayRemove(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Cancel Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Cancel Success", Toast.LENGTH_SHORT).show()
                     setRegisterListener(eventRegisterButton, eventRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Cancel Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Cancel Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }
