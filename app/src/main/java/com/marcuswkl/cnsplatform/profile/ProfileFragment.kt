@@ -56,11 +56,11 @@ class ProfileFragment : Fragment() {
                     root.intake_field.text = document.getString("intake")
 
                 } else {
-                    Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
             }
 
         root.follow_list_button.setOnClickListener {

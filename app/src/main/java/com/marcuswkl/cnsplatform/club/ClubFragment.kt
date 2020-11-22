@@ -102,11 +102,11 @@ class ClubFragment : Fragment() {
                             }
 
                         } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                            // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
         })
@@ -182,11 +182,11 @@ class ClubFragment : Fragment() {
                             }
 
                         } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                            // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
             })
@@ -230,11 +230,11 @@ class ClubFragment : Fragment() {
 
             clubRef.update("member_list", FieldValue.arrayUnion(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Join Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Join Success", Toast.LENGTH_SHORT).show()
                     setLeaveListener(clubJoinButton, clubRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Join Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Join Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -249,11 +249,11 @@ class ClubFragment : Fragment() {
 
             clubRef.update("member_list", FieldValue.arrayRemove(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Leave Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Leave Success", Toast.LENGTH_SHORT).show()
                     setJoinListener(clubJoinButton, clubRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Leave Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Leave Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -268,11 +268,11 @@ class ClubFragment : Fragment() {
 
             clubRef.update("follow_list", FieldValue.arrayUnion(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Follow Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Follow Success", Toast.LENGTH_SHORT).show()
                     setUnfollowListener(clubFollowButton, clubRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Follow Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Follow Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -287,11 +287,11 @@ class ClubFragment : Fragment() {
 
             clubRef.update("follow_list", FieldValue.arrayRemove(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Unfollow Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Unfollow Success", Toast.LENGTH_SHORT).show()
                     setFollowListener(clubFollowButton, clubRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Unfollow Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Unfollow Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }

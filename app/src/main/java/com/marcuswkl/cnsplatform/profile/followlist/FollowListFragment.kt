@@ -55,8 +55,8 @@ class FollowListFragment : Fragment() {
                 followListRecyclerView.adapter = followListAdapter
 
             }
-            .addOnFailureListener {
-                Toast.makeText(activity, "Read Failed", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener { exception ->
+                // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
             }
 
         return root

@@ -80,11 +80,11 @@ class EventFragment : Fragment() {
                             }
 
                         } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                            // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
         })
@@ -100,11 +100,11 @@ class EventFragment : Fragment() {
 
             eventRef.update("attendee_list", FieldValue.arrayUnion(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Register Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Register Success", Toast.LENGTH_SHORT).show()
                     setCancelListener(eventRegisterButton, eventRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Register Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Register Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }
@@ -119,11 +119,11 @@ class EventFragment : Fragment() {
 
             eventRef.update("attendee_list", FieldValue.arrayRemove(studentId))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Cancel Success", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Cancel Success", Toast.LENGTH_SHORT).show()
                     setRegisterListener(eventRegisterButton, eventRef, studentId)
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Cancel Fail", Toast.LENGTH_SHORT).show()
+                    // Toast.makeText(activity, "Cancel Failed", Toast.LENGTH_SHORT).show()
                 }
 
         }

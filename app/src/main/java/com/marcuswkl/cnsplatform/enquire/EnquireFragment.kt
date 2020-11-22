@@ -62,7 +62,7 @@ class EnquireFragment : Fragment() {
                                             Toast.makeText(activity, "Submission Success", Toast.LENGTH_SHORT).show()
                                         }
                                         .addOnFailureListener {
-                                            Toast.makeText(activity, "Submission Fail", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(activity, "Submission Failed", Toast.LENGTH_SHORT).show()
                                         }
 
                                 }
@@ -70,11 +70,11 @@ class EnquireFragment : Fragment() {
                             }
 
                         } else {
-                            Toast.makeText(activity, "Document Does Not Exist.", Toast.LENGTH_SHORT).show()
+                            // Toast.makeText(activity, "Document Does Not Exist", Toast.LENGTH_SHORT).show()
                         }
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(activity, "Read Failed. $exception", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
             })
