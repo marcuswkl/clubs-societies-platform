@@ -49,15 +49,28 @@ class EventFragment : Fragment() {
                             root.event_venue.text = document.getString("venue")
 
                             val memberPrice = document.getDouble("member_price")?.toInt()
-                            val memberPriceText = getString(R.string.member_price_text, memberPrice)
+
+                            val memberPriceText = if (memberPrice == 0) {
+                                getString(R.string.member_price_free_text)
+                            } else {
+                                getString(R.string.member_price_text, memberPrice)
+                            }
+
                             val priceText = StringBuilder()
                             priceText.appendLine(memberPriceText)
 
                             val isMemberOnly = document.getBoolean("is_member_only")
 
+                            // Check if event open to non-members
                             if (!isMemberOnly!!) {
                                 val nonMemberPrice = document.getDouble("non_member_price")?.toInt()
-                                val nonMemberPriceText = getString(R.string.non_member_price_text, nonMemberPrice)
+
+                                val nonMemberPriceText = if (nonMemberPrice == 0) {
+                                    getString(R.string.non_member_price_free_text)
+                                } else {
+                                    getString(R.string.non_member_price_text, nonMemberPrice)
+                                }
+
                                 priceText.appendLine(nonMemberPriceText)
                             }
 

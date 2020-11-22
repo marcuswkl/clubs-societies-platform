@@ -57,9 +57,16 @@ class ClubFragment : Fragment() {
                             root.club_advisor.text = document.getString("advisor")
 
                             val membershipFee = document.getDouble("membership_fee")?.toInt()
-                            val membershipFeeText = getString(R.string.membership_fee_text, membershipFee)
+
+                            val membershipFeeText = if (membershipFee == 0) {
+                                getString(R.string.free_membership)
+                            } else {
+                                getString(R.string.membership_fee_text, membershipFee)
+                            }
+
                             val membershipBenefits = document.get("membership_benefits") as List<*>
-                            root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
+                            root.club_membership_info.text =
+                                membershipInfoToString(membershipFeeText, membershipBenefits)
 
                             root.club_email.text = document.getString("email")
 
@@ -67,7 +74,10 @@ class ClubFragment : Fragment() {
                             root.club_tags.text = tagsToString(tags)
 
                             root.club_enquire_button.setOnClickListener {
-                                fragmentManager.setFragmentResult("enquireClubId", bundleOf("clubId" to tileClubId))
+                                fragmentManager.setFragmentResult(
+                                    "enquireClubId",
+                                    bundleOf("clubId" to tileClubId)
+                                )
                                 val enquireFragment = EnquireFragment()
                                 val fragmentTransaction = fragmentManager.beginTransaction()
                                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
@@ -109,7 +119,7 @@ class ClubFragment : Fragment() {
                         // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
-        })
+            })
 
         // Listener for search result
         fragmentManager?.setFragmentResultListener(
@@ -137,9 +147,16 @@ class ClubFragment : Fragment() {
                             root.club_advisor.text = document.getString("advisor")
 
                             val membershipFee = document.getDouble("membership_fee")?.toInt()
-                            val membershipFeeText = getString(R.string.membership_fee_text, membershipFee)
+
+                            val membershipFeeText = if (membershipFee == 0) {
+                                getString(R.string.free_membership)
+                            } else {
+                                getString(R.string.membership_fee_text, membershipFee)
+                            }
+
                             val membershipBenefits = document.get("membership_benefits") as List<*>
-                            root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
+                            root.club_membership_info.text =
+                                membershipInfoToString(membershipFeeText, membershipBenefits)
 
                             root.club_email.text = document.getString("email")
 
@@ -147,7 +164,10 @@ class ClubFragment : Fragment() {
                             root.club_tags.text = tagsToString(tags)
 
                             root.club_enquire_button.setOnClickListener {
-                                fragmentManager.setFragmentResult("enquireClubId", bundleOf("clubId" to resultClubId))
+                                fragmentManager.setFragmentResult(
+                                    "enquireClubId",
+                                    bundleOf("clubId" to resultClubId)
+                                )
                                 val enquireFragment = EnquireFragment()
                                 val fragmentTransaction = fragmentManager.beginTransaction()
                                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
@@ -197,7 +217,7 @@ class ClubFragment : Fragment() {
     // Convert retrieved Lists from db to strings for TextView display
     private fun listToString(list: List<*>): String {
         val listText = StringBuilder()
-        list.forEach {listItem ->
+        list.forEach { listItem ->
             listText.appendLine(listItem)
         }
         return listText.toString()
@@ -207,7 +227,7 @@ class ClubFragment : Fragment() {
     private fun membershipInfoToString(membershipFee: String, membershipBenefits: List<*>): String {
         val listText = StringBuilder()
         listText.appendLine(membershipFee)
-        membershipBenefits.forEach {benefit ->
+        membershipBenefits.forEach { benefit ->
             listText.appendLine("- $benefit")
         }
         return listText.toString()
@@ -216,13 +236,17 @@ class ClubFragment : Fragment() {
     // Modified listToString() for tags
     private fun tagsToString(list: List<*>): String {
         val listText = StringBuilder()
-        list.forEach {listItem ->
+        list.forEach { listItem ->
             listText.append("$listItem, ")
         }
         return listText.toString().removeSuffix(", ")
     }
 
-    private fun setJoinListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+    private fun setJoinListener(
+        clubJoinButton: Button,
+        clubRef: DocumentReference,
+        studentId: String?
+    ) {
 
         clubJoinButton.text = getString(R.string.join)
 
@@ -241,7 +265,11 @@ class ClubFragment : Fragment() {
 
     }
 
-    private fun setLeaveListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
+    private fun setLeaveListener(
+        clubJoinButton: Button,
+        clubRef: DocumentReference,
+        studentId: String?
+    ) {
 
         clubJoinButton.text = getString(R.string.leave)
 
@@ -260,7 +288,11 @@ class ClubFragment : Fragment() {
 
     }
 
-    private fun setFollowListener(clubFollowButton: Button, clubRef: DocumentReference, studentId: String?) {
+    private fun setFollowListener(
+        clubFollowButton: Button,
+        clubRef: DocumentReference,
+        studentId: String?
+    ) {
 
         clubFollowButton.text = getString(R.string.follow)
 
@@ -279,7 +311,11 @@ class ClubFragment : Fragment() {
 
     }
 
-    private fun setUnfollowListener(clubFollowButton: Button, clubRef: DocumentReference, studentId: String?) {
+    private fun setUnfollowListener(
+        clubFollowButton: Button,
+        clubRef: DocumentReference,
+        studentId: String?
+    ) {
 
         clubFollowButton.text = getString(R.string.unfollow)
 
