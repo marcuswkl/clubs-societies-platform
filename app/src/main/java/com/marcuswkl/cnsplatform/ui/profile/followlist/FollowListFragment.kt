@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_follow_list.view.*
 
 class FollowListFragment : Fragment() {
 
-    private lateinit var followListViewModel: FollowListViewModel
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var followListAdapter: FollowListAdapter
 
@@ -25,8 +24,6 @@ class FollowListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        followListViewModel =
-            ViewModelProvider(this).get(FollowListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_follow_list, container, false)
 
         val db = Firebase.firestore

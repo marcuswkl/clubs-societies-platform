@@ -18,7 +18,6 @@ import java.util.*
 
 class SearchFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var searchAdapter: SearchAdapter
 
@@ -27,8 +26,6 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-            ViewModelProvider(this).get(SearchViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_search, container, false)
 
         val utils = Utils()

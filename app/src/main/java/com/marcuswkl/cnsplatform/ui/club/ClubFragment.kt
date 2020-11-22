@@ -21,15 +21,11 @@ import kotlinx.android.synthetic.main.fragment_club.view.*
 
 class ClubFragment : Fragment() {
 
-    private lateinit var clubViewModel: ClubViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        clubViewModel =
-            ViewModelProvider(this).get(ClubViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_club, container, false)
 
         val db = Firebase.firestore

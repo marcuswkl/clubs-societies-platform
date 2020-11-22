@@ -22,15 +22,11 @@ import kotlinx.android.synthetic.main.fragment_event.view.*
 
 class EventFragment : Fragment() {
 
-    private lateinit var eventViewModel: EventViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        eventViewModel =
-            ViewModelProvider(this).get(EventViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_event, container, false)
 
         val db = Firebase.firestore

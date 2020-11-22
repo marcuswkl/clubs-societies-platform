@@ -19,8 +19,6 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var profileViewModel: ProfileViewModel
-
     private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
@@ -28,8 +26,6 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
         val db = Firebase.firestore

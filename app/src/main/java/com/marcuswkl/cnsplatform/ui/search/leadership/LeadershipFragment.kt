@@ -14,15 +14,11 @@ import kotlinx.android.synthetic.main.fragment_leadership.view.*
 
 class LeadershipFragment : Fragment() {
 
-    private lateinit var leadershipViewModel: LeadershipViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        leadershipViewModel =
-            ViewModelProvider(this).get(LeadershipViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_leadership, container, false)
 
         val fragmentManager = activity?.supportFragmentManager

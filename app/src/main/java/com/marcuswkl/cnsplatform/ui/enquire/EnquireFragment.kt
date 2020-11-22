@@ -18,15 +18,11 @@ import java.util.*
 
 class EnquireFragment : Fragment() {
 
-    private lateinit var enquireViewModel: EnquireViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        enquireViewModel =
-            ViewModelProvider(this).get(EnquireViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_enquire, container, false)
 
         val db = Firebase.firestore
