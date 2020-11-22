@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/post_club_name_title"
-        style="@style/ClubInfoText"
+        style="@style/InfoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -34,7 +34,7 @@
 
     <TextView
         android:id="@+id/post_date"
-        style="@style/ClubInfoText"
+        style="@style/InfoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -48,7 +48,7 @@
 
     <TextView
         android:id="@+id/post_content_text"
-        style="@style/ClubInfoText"
+        style="@style/InfoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

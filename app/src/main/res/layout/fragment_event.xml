@@ -62,7 +62,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_single_line_margin_bottom">
 
                 <ImageView
                     android:id="@+id/event_poster"
@@ -76,7 +76,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_single_line_margin_bottom">
 
                 <ImageView
                     android:id="@+id/event_date_label"
@@ -88,7 +88,7 @@
 
                 <TextView
                     android:id="@+id/event_date"
-                    style="@style/ClubInfoText"
+                    style="@style/InfoText"
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
@@ -99,7 +99,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_single_line_margin_bottom">
 
                 <ImageView
                     android:id="@+id/event_time_label"
@@ -111,7 +111,7 @@
 
                 <TextView
                     android:id="@+id/event_time"
-                    style="@style/ClubInfoText"
+                    style="@style/InfoText"
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
@@ -122,7 +122,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_single_line_margin_bottom">
 
                 <ImageView
                     android:id="@+id/event_venue_label"
@@ -134,7 +134,7 @@
 
                 <TextView
                     android:id="@+id/event_venue"
-                    style="@style/ClubInfoText"
+                    style="@style/InfoText"
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
@@ -145,7 +145,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_multi_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_multi_line_margin_bottom">
 
                 <ImageView
                     android:id="@+id/event_price_label"
@@ -157,7 +157,7 @@
 
                 <TextView
                     android:id="@+id/event_price"
-                    style="@style/ClubInfoText"
+                    style="@style/InfoText"
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:text="PRICE" />
@@ -167,7 +167,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_single_line_margin_bottom">
 
                 <ImageView
                     android:id="@+id/event_info_label"
@@ -179,7 +179,7 @@
 
                 <TextView
                     android:id="@+id/event_info"
-                    style="@style/ClubInfoText"
+                    style="@style/InfoText"
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
@@ -190,7 +190,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/club_section_single_margin_bottom">
+                android:layout_marginBottom="@dimen/table_row_single_line_margin_bottom">
 
                 <Button
                     android:id="@+id/event_register_button"

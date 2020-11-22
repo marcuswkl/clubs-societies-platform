@@ -33,11 +33,11 @@ class EnquireFragment : Fragment() {
 
         val fragmentManager = activity?.supportFragmentManager
         fragmentManager?.setFragmentResultListener(
-            "enquireClubName", this, { key, bundle ->
+            "enquireClubId", this, { key, bundle ->
 
-                val enquireClubName = bundle.getString("name")
+                val enquireClubId = bundle.getString("clubId")
 
-                val clubRef = db.collection("clubs").document("$enquireClubName")
+                val clubRef = db.collection("clubs").document("$enquireClubId")
                 clubRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {

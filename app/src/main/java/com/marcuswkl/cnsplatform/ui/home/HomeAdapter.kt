@@ -64,7 +64,7 @@ class HomeAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
         // Create View (list item) for ViewHolder
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.home_content_post, parent, false)
+            .inflate(R.layout.home_post, parent, false)
 
         return PostViewHolder(view)
     }

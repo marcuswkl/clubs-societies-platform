@@ -8,7 +8,7 @@
     tools:context=".ui.search.leadership.LeadershipFragment">
 
     <TextView
-        android:id="@+id/search_field"
+        android:id="@+id/leadership_title"
         style="@style/CategoryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_field">
+        app:layout_constraintTop_toBottomOf="@+id/leadership_title">
 
         <TableLayout
             android:layout_width="wrap_content"

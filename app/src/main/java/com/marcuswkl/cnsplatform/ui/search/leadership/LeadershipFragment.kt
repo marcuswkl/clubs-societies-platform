@@ -29,8 +29,8 @@ class LeadershipFragment : Fragment() {
 
         root.leadership_susc_tile.setOnClickListener {
 
-            val result = "sunwayuniversitystudentcouncil"
-            fragmentManager?.setFragmentResult("clubName", bundleOf("name" to result))
+            val clubId = "sunwayuniversitystudentcouncil"
+            fragmentManager?.setFragmentResult("tileClubId", bundleOf("clubId" to clubId))
 
             val clubFragment = ClubFragment()
             val fragmentTransaction = fragmentManager?.beginTransaction()

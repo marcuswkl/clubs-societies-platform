@@ -30,7 +30,7 @@
         <item name="android:textColor">@color/colorSecondary</item>
     </style>
 
-    <style name="ClubInfoText" parent="Widget.AppCompat.TextView">
+    <style name="InfoText" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/colorSecondary</item>
     </style>

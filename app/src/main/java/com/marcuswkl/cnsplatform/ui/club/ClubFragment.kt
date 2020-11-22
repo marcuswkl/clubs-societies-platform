@@ -35,12 +35,14 @@ class ClubFragment : Fragment() {
         val db = Firebase.firestore
 
         val fragmentManager = activity?.supportFragmentManager
+
+        // Listener for club tile
         fragmentManager?.setFragmentResultListener(
-            "clubName", this, { key, bundle ->
+            "tileClubId", this, { key, bundle ->
 
-                val clubName = bundle.getString("name")
+                val tileClubId = bundle.getString("clubId")
 
-                val clubRef = db.collection("clubs").document("$clubName")
+                val clubRef = db.collection("clubs").document("$tileClubId")
                 clubRef.get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
@@ -65,10 +67,12 @@ class ClubFragment : Fragment() {
                             root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
 
                             root.club_email.text = document.getString("email")
-                            root.club_tags.text = document.getString("tags")
+
+                            val tags = document.get("tags") as List<*>
+                            root.club_tags.text = tagsToString(tags)
 
                             root.club_enquire_button.setOnClickListener {
-                                fragmentManager.setFragmentResult("enquireClubName", bundleOf("name" to clubName))
+                                fragmentManager.setFragmentResult("enquireClubId", bundleOf("clubId" to tileClubId))
                                 val enquireFragment = EnquireFragment()
                                 val fragmentTransaction = fragmentManager.beginTransaction()
                                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
@@ -112,6 +116,7 @@ class ClubFragment : Fragment() {
 
         })
 
+        // Listener for search result
         fragmentManager?.setFragmentResultListener(
             "resultClubId", this, { key, bundle ->
 
@@ -142,10 +147,12 @@ class ClubFragment : Fragment() {
                             root.club_membership_info.text = membershipInfoToString(membershipFeeText, membershipBenefits)
 
                             root.club_email.text = document.getString("email")
-                            root.club_tags.text = document.getString("tags")
+
+                            val tags = document.get("tags") as List<*>
+                            root.club_tags.text = tagsToString(tags)
 
                             root.club_enquire_button.setOnClickListener {
-                                fragmentManager.setFragmentResult("enquireClubName", bundleOf("name" to resultClubId))
+                                fragmentManager.setFragmentResult("enquireClubId", bundleOf("clubId" to resultClubId))
                                 val enquireFragment = EnquireFragment()
                                 val fragmentTransaction = fragmentManager.beginTransaction()
                                 fragmentTransaction.replace(R.id.club_fragment, enquireFragment)
@@ -209,6 +216,15 @@ class ClubFragment : Fragment() {
             listText.appendLine("- $benefit")
         }
         return listText.toString()
+    }
+
+    // Modified listToString() for tags
+    private fun tagsToString(list: List<*>): String {
+        val listText = StringBuilder()
+        list.forEach {listItem ->
+            listText.append("$listItem, ")
+        }
+        return listText.toString().removeSuffix(", ")
     }
 
     private fun setJoinListener(clubJoinButton: Button, clubRef: DocumentReference, studentId: String?) {
