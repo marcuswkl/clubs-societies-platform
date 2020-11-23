@@ -8,7 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.club.ClubFragment
-import kotlinx.android.synthetic.main.fragment_leadership.view.*
+import kotlinx.android.synthetic.main.fragment_uniform_affiliate.view.*
 
 
 class UniformAffiliateFragment : Fragment() {
@@ -18,19 +18,19 @@ class UniformAffiliateFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_leadership, container, false)
+        val root = inflater.inflate(R.layout.fragment_uniform_affiliate, container, false)
 
         val fragmentManager = activity?.supportFragmentManager
 
-        root.leadership_susc_tile.setOnClickListener {
+        root.uniform_affiliate_tedx_tile.setOnClickListener {
 
-            val clubId = "sunwayuniversitystudentcouncil"
+            val clubId = "tedxsunwayuniversity"
             fragmentManager?.setFragmentResult("tileClubId", bundleOf("clubId" to clubId))
 
             val clubFragment = ClubFragment()
             val fragmentTransaction = fragmentManager?.beginTransaction()
             if (fragmentTransaction != null) {
-                fragmentTransaction.replace(R.id.leadership_fragment, clubFragment)
+                fragmentTransaction.replace(R.id.uniform_affiliate_fragment, clubFragment)
                     .addToBackStack(null)
                     .commit()
             }
