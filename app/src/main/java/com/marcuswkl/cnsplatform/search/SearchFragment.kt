@@ -40,13 +40,12 @@ class SearchFragment : Fragment() {
                         root.category_tiles_scrollview.visibility = View.INVISIBLE
                         root.result_recycler_view.visibility = View.VISIBLE
 
-                        val queryString = root.search_field.text.toString().toLowerCase(Locale.ROOT)
-                        val querySubstrings = queryString.split(" ")
+                        val query = root.search_field.text.toString().toLowerCase(Locale.ROOT)
 
                         val db = Firebase.firestore
 
                         val clubsRef = db.collection("clubs")
-                        clubsRef.whereArrayContainsAny("tags", querySubstrings)
+                        clubsRef.whereArrayContains("search_queries", query)
                             .get()
                             .addOnSuccessListener { querySnapshot ->
 
