@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/leadership_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search.leadership.LeadershipFragment">
+
+    <TextView
+        android:id="@+id/leadership_title"
+        style="@style/CategoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/student_leadership_bodies"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/leadership_tiles"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="71dp"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leadership_title">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/leadership_susc_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_leadership_susc" />
+
+                <ImageView
+                    android:id="@+id/leadership_scc_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_leadership_scc" />
+
+                <ImageView
+                    android:id="@+id/leadership_ssc_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_leadership_ssc" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/leadership_sem_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_leadership_sem" />
+
+                <ImageView
+                    android:id="@+id/leadership_srn_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_leadership_srn" />
+
+                <ImageView
+                    android:id="@+id/leadership_sgfc_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_leadership_sgfc" />
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
