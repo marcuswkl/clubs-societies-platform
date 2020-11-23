@@ -45,6 +45,9 @@ class SearchFragment : Fragment() {
                         val db = Firebase.firestore
 
                         val clubsRef = db.collection("clubs")
+
+                        // Check if search_queries array of club documents contain user input query string
+                        // Get matching club documents and display club information in search results
                         clubsRef.whereArrayContains("search_queries", query)
                             .get()
                             .addOnSuccessListener { querySnapshot ->
@@ -82,6 +85,7 @@ class SearchFragment : Fragment() {
 
         })
 
+        // If search is empty, reset to original layout with category tiles
         root.search_field.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().isEmpty()) {

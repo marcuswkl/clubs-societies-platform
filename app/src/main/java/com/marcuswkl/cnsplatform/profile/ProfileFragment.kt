@@ -35,6 +35,7 @@ class ProfileFragment : Fragment() {
         val iMail = user?.email
         val studentId = iMail?.substringBefore("@")
 
+        // Get and display user information
         val userRef = db.collection("students").document("$studentId")
         userRef.get()
             .addOnSuccessListener { document ->

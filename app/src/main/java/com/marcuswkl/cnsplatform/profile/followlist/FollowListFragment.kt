@@ -31,6 +31,7 @@ class FollowListFragment : Fragment() {
         val iMail = user?.email
         val studentId = iMail?.substringBefore("@")
 
+        // Get and display followed clubs
         val userRef = db.collection("students").document("$studentId").collection("follow_list")
         userRef.get()
             .addOnSuccessListener { querySnapshot ->

@@ -76,7 +76,7 @@ class HomeAdapter(
         holder.postClubNameTitle.text = postClubNameTitles[position]
         holder.postDate.text = postDates[position]
 
-        // Check post type
+        // Check if post type is content
         if (postTypes[position] == "content") {
 
             holder.postContentText.text = postTexts[position]
@@ -87,6 +87,7 @@ class HomeAdapter(
             }
 
         }
+        // Post type is event
         else {
 
             holder.postContentText.visibility = View.GONE

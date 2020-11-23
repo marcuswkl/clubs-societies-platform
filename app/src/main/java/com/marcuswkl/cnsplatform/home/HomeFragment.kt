@@ -59,9 +59,12 @@ class HomeFragment : Fragment() {
                     val postType = queryDocumentSnapshot.getString("type")
                     postType?.let { postTypes.add(it) }
 
+                    // Check if post type is content
                     if (postType.equals("content")) {
                         queryDocumentSnapshot.getString("text")?.let { postTexts.add(it) }
-                    } else {
+                    }
+                    // Post type is event
+                    else {
                         val textList = queryDocumentSnapshot.get("text") as List<*>
                         postTexts.add(listToString(textList))
                     }
@@ -91,6 +94,7 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    // Convert retrieved Lists from db to strings for TextView display
     private fun listToString(list: List<*>): String {
         val listText = StringBuilder()
         list.forEach {listItem ->
