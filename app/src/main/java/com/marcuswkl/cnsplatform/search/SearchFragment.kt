@@ -3,7 +3,10 @@ package com.marcuswkl.cnsplatform.search
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.*
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -58,8 +61,10 @@ class SearchFragment : Fragment() {
 
                                 for (queryDocumentSnapshot in querySnapshot) {
                                     queryDocumentSnapshot.id.let { clubIds.add(it) }
-                                    queryDocumentSnapshot.getString("logo")?.let { clubLogos.add(it) }
-                                    queryDocumentSnapshot.getString("name")?.let { clubNames.add(it) }
+                                    queryDocumentSnapshot.getString("logo")
+                                        ?.let { clubLogos.add(it) }
+                                    queryDocumentSnapshot.getString("name")
+                                        ?.let { clubNames.add(it) }
                                 }
 
                                 val resultRecyclerView = root.result_recycler_view
@@ -94,8 +99,10 @@ class SearchFragment : Fragment() {
                     root.category_tiles_scrollview.visibility = View.VISIBLE
                 }
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })

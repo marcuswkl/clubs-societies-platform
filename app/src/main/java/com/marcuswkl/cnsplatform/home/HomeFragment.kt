@@ -97,7 +97,7 @@ class HomeFragment : Fragment() {
     // Convert retrieved Lists from db to strings for TextView display
     private fun listToString(list: List<*>): String {
         val listText = StringBuilder()
-        list.forEach {listItem ->
+        list.forEach { listItem ->
             listText.appendLine(listItem)
         }
         return listText.toString()
