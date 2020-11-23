@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/uniform_affiliate_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".search.uniformaffiliate.UniformAffiliateFragment">
+
+    <TextView
+        android:id="@+id/uniform_affiliate_title"
+        style="@style/CategoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/uniform_affiliate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/uniform_affiliate_tiles"
+        android:layout_width="wrap_content"
+        android:layout_height="550dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="71dp"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uniform_affiliate_title">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_surc_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate_surc" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_sunmun_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate_sunmun" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_sutc_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_uniform_affiliate_sutc" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_aiesec_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate_aiesec" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_rcsu_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate_rcsu" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_tedx_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_uniform_affiliate_tedx" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/category_tiles_margin_bottom">
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_spair_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate_spair" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_ais_tile"
+                    style="@style/CategoryTile"
+                    android:src="@drawable/tile_uniform_affiliate_ais" />
+
+                <ImageView
+                    android:id="@+id/uniform_affiliate_afs_tile"
+                    style="@style/CategoryTile"
+                    android:layout_marginEnd="0dp"
+                    android:src="@drawable/tile_uniform_affiliate_afs" />
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

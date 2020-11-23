@@ -15,6 +15,7 @@
 
     <!--Category Fragments-->
     <string name="student_leadership_bodies">STUDENT LEADERSHIP BODIES</string>
+    <string name="uniform_affiliate">UNIFORM / AFFILIATE</string>
 
     <!--Home Fragment-->
     <string name="text_content">TEXT CONTENT</string>
