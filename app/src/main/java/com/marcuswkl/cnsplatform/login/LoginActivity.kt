@@ -2,16 +2,15 @@ package com.marcuswkl.cnsplatform.login
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.MainActivity
-
 import com.marcuswkl.cnsplatform.R
 
 class LoginActivity : AppCompatActivity() {

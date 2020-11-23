@@ -1,37 +1,71 @@
 <resources>
+
     <string name="app_name">Sunway CnS</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">HOME</string>
-    <string name="title_search">SEARCH</string>
-    <string name="title_profile">PROFILE</string>
+
+    <!--Login Activity-->
     <string name="title_activity_login">LOGIN</string>
-    <string name="login">LOGIN</string>
     <string name="student_id">STUDENT ID</string>
     <string name="password">PASSWORD</string>
+
+    <!--Bottom Nav Menu-->
+    <string name="title_search">SEARCH</string>
+    <string name="title_home">HOME</string>
+    <string name="title_profile">PROFILE</string>
+
+    <!--Category Fragments-->
+    <string name="student_leadership_bodies">STUDENT LEADERSHIP BODIES</string>
+
+    <!--Home Fragment-->
+    <string name="text_content">TEXT CONTENT</string>
+    <string name="view_event">VIEW EVENT</string>
+
+    <!--Profile Fragment-->
     <string name="full_name">FULL NAME</string>
+    <string name="gender">GENDER</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
     <string name="ic_number">IC NUMBER</string>
     <string name="phone_number">PHONE NUMBER</string>
     <string name="programme">PROGRAMME</string>
     <string name="intake">INTAKE</string>
-    <string name="gender">GENDER</string>
-    <string name="male">MALE</string>
-    <string name="female">FEMALE</string>
     <string name="follow_list">FOLLOW LIST</string>
     <string name="log_out">LOGOUT</string>
-    <string name="student_leadership_bodies">STUDENT LEADERSHIP BODIES</string>
+
+    <!--Club Fragment-->
+    <string name="club_name">CLUB NAME</string>
+    <string name="category">CATEGORY</string>
+    <string name="info">INFO</string>
+    <string name="past_events">PAST EVENTS</string>
+    <string name="committee_list">COMMITTEE LIST</string>
+    <string name="advisor">ADVISOR</string>
+    <string name="meeting_info">MEETING INFO</string>
+    <string name="membership_fee_and_benefits">MEMBERSHIP FEE AND BENEFITS</string>
+    <string name="membership_fee_text">RM %d / YEAR</string>
+    <string name="free_membership">FREE MEMBERSHIP</string>
+    <string name="email">EMAIL</string>
+    <string name="tags">TAGS</string>
     <string name="follow">FOLLOW</string>
     <string name="unfollow">UNFOLLOW</string>
     <string name="enquire">ENQUIRE</string>
     <string name="join">JOIN</string>
     <string name="leave">LEAVE</string>
+
+    <!--Enquire Fragment-->
     <string name="ask_us_a_question">ASK US A QUESTION:</string>
     <string name="submit">SUBMIT</string>
-    <string name="membership_fee_text">RM %d / YEAR</string>
-    <string name="free_membership">FREE MEMBERSHIP</string>
-    <string name="register">REGISTER</string>
-    <string name="cancel">CANCEL</string>
+
+    <!--Event Fragment-->
+    <string name="event_name">EVENT NAME</string>
+    <string name="date">DATE</string>
+    <string name="time">TIME</string>
+    <string name="venue">VENUE</string>
+    <string name="price">PRICE</string>
     <string name="member_price_text">MEMBERS: RM %d</string>
     <string name="member_price_free_text">MEMBERS: FREE</string>
     <string name="non_member_price_text">NON-MEMBERS: RM %d</string>
     <string name="non_member_price_free_text">NON-MEMBERS: FREE</string>
+    <string name="register">REGISTER</string>
+    <string name="cancel">CANCEL</string>
+
 </resources>

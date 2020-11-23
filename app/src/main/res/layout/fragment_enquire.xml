@@ -23,7 +23,7 @@
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="CLUB NAME"
+        android:text="@string/club_name"
         app:layout_constraintBottom_toBottomOf="@+id/enquire_club_logo"
         app:layout_constraintStart_toEndOf="@+id/enquire_club_logo"
         app:layout_constraintTop_toTopOf="@+id/enquire_club_logo" />

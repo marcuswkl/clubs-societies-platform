@@ -1,9 +1,9 @@
 package com.marcuswkl.cnsplatform
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.marcuswkl.cnsplatform.login.LoginActivity
 
 class MainMenuActivity : AppCompatActivity() {

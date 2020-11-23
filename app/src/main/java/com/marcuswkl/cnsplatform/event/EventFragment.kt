@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
@@ -40,7 +39,8 @@ class EventFragment : Fragment() {
                     .addOnSuccessListener { document ->
                         if (document != null) {
 
-                            Picasso.get().load(document.getString("club_logo")).into(root.event_club_logo)
+                            Picasso.get().load(document.getString("club_logo"))
+                                .into(root.event_club_logo)
                             root.event_club_name_title.text = document.getString("club_name")
                             root.event_name_title.text = document.getString("event_name")
                             Picasso.get().load(document.getString("poster")).into(root.event_poster)
@@ -100,12 +100,16 @@ class EventFragment : Fragment() {
                         // Toast.makeText(activity, "$exception", Toast.LENGTH_SHORT).show()
                     }
 
-        })
+            })
 
         return root
     }
 
-    private fun setRegisterListener(eventRegisterButton: Button, eventRef: DocumentReference, studentId: String?) {
+    private fun setRegisterListener(
+        eventRegisterButton: Button,
+        eventRef: DocumentReference,
+        studentId: String?
+    ) {
 
         eventRegisterButton.text = getString(R.string.register)
 
@@ -124,7 +128,11 @@ class EventFragment : Fragment() {
 
     }
 
-    private fun setCancelListener(eventRegisterButton: Button, eventRef: DocumentReference, studentId: String?) {
+    private fun setCancelListener(
+        eventRegisterButton: Button,
+        eventRef: DocumentReference,
+        studentId: String?
+    ) {
 
         eventRegisterButton.text = getString(R.string.cancel)
 

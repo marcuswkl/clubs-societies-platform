@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
@@ -31,6 +30,7 @@ class FollowListFragment : Fragment() {
         val iMail = user?.email
         val studentId = iMail?.substringBefore("@")
 
+        // Get and display followed clubs
         val userRef = db.collection("students").document("$studentId").collection("follow_list")
         userRef.get()
             .addOnSuccessListener { querySnapshot ->

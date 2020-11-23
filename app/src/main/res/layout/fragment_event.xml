@@ -23,7 +23,7 @@
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="CLUB NAME"
+        android:text="@string/club_name"
         app:layout_constraintBottom_toBottomOf="@+id/event_club_logo"
         app:layout_constraintStart_toEndOf="@+id/event_club_logo"
         app:layout_constraintTop_toTopOf="@+id/event_club_logo" />
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="25dp"
-        android:text="EVENT NAME"
+        android:text="@string/event_name"
         app:layout_constraintBottom_toTopOf="@+id/event_info_scrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:text="DATE" />
+                    android:text="@string/date" />
 
             </TableRow>
 
@@ -115,7 +115,7 @@
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:text="TIME" />
+                    android:text="@string/time" />
 
             </TableRow>
 
@@ -138,7 +138,7 @@
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:text="VENUE" />
+                    android:text="@string/venue" />
 
             </TableRow>
 
@@ -160,7 +160,7 @@
                     style="@style/InfoText"
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
-                    android:text="PRICE" />
+                    android:text="@string/price" />
 
             </TableRow>
 
@@ -183,7 +183,7 @@
                     android:layout_width="@dimen/club_text_width"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:text="INFO" />
+                    android:text="@string/info" />
 
             </TableRow>
 

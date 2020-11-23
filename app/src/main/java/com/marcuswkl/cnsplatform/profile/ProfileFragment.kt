@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -35,6 +34,7 @@ class ProfileFragment : Fragment() {
         val iMail = user?.email
         val studentId = iMail?.substringBefore("@")
 
+        // Get and display user information
         val userRef = db.collection("students").document("$studentId")
         userRef.get()
             .addOnSuccessListener { document ->

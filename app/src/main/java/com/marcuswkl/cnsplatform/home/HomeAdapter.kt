@@ -76,7 +76,7 @@ class HomeAdapter(
         holder.postClubNameTitle.text = postClubNameTitles[position]
         holder.postDate.text = postDates[position]
 
-        // Check post type
+        // Check if post type is content
         if (postTypes[position] == "content") {
 
             holder.postContentText.text = postTexts[position]
@@ -87,6 +87,7 @@ class HomeAdapter(
             }
 
         }
+        // Post type is event
         else {
 
             holder.postContentText.visibility = View.GONE
@@ -96,7 +97,7 @@ class HomeAdapter(
 
             Picasso.get().load(postImages[position]).into(holder.postEventImage)
             holder.postEventText.text = postTexts[position]
-            holder.postViewEventButton.setOnClickListener(object: View.OnClickListener {
+            holder.postViewEventButton.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(v: View?) {
 
                     val activity = v?.context as AppCompatActivity
@@ -104,7 +105,10 @@ class HomeAdapter(
 
                     val postClubId = clubIds[position]
                     val postEventId = postIds[position]
-                    fragmentManager.setFragmentResult("postClubEventIds", bundleOf("clubId" to postClubId, "eventId" to postEventId))
+                    fragmentManager.setFragmentResult(
+                        "postClubEventIds",
+                        bundleOf("clubId" to postClubId, "eventId" to postEventId)
+                    )
 
                     val eventFragment = EventFragment()
                     val fragmentTransaction = fragmentManager.beginTransaction()

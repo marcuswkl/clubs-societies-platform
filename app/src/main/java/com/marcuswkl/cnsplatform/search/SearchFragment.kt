@@ -3,7 +3,10 @@ package com.marcuswkl.cnsplatform.search
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.*
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,13 +43,15 @@ class SearchFragment : Fragment() {
                         root.category_tiles_scrollview.visibility = View.INVISIBLE
                         root.result_recycler_view.visibility = View.VISIBLE
 
-                        val queryString = root.search_field.text.toString().toLowerCase(Locale.ROOT)
-                        val querySubstrings = queryString.split(" ")
+                        val query = root.search_field.text.toString().toLowerCase(Locale.ROOT)
 
                         val db = Firebase.firestore
 
                         val clubsRef = db.collection("clubs")
-                        clubsRef.whereArrayContainsAny("tags", querySubstrings)
+
+                        // Check if search_queries array of club documents contain user input query string
+                        // Get matching club documents and display club information in search results
+                        clubsRef.whereArrayContains("search_queries", query)
                             .get()
                             .addOnSuccessListener { querySnapshot ->
 
@@ -56,8 +61,10 @@ class SearchFragment : Fragment() {
 
                                 for (queryDocumentSnapshot in querySnapshot) {
                                     queryDocumentSnapshot.id.let { clubIds.add(it) }
-                                    queryDocumentSnapshot.getString("logo")?.let { clubLogos.add(it) }
-                                    queryDocumentSnapshot.getString("name")?.let { clubNames.add(it) }
+                                    queryDocumentSnapshot.getString("logo")
+                                        ?.let { clubLogos.add(it) }
+                                    queryDocumentSnapshot.getString("name")
+                                        ?.let { clubNames.add(it) }
                                 }
 
                                 val resultRecyclerView = root.result_recycler_view
@@ -83,6 +90,7 @@ class SearchFragment : Fragment() {
 
         })
 
+        // If search is empty, reset to original layout with category tiles
         root.search_field.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().isEmpty()) {
@@ -91,8 +99,10 @@ class SearchFragment : Fragment() {
                     root.category_tiles_scrollview.visibility = View.VISIBLE
                 }
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
+
             override fun afterTextChanged(s: Editable?) {
             }
         })
