@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import com.marcuswkl.cnsplatform.R
 import com.marcuswkl.cnsplatform.Utils
 import com.marcuswkl.cnsplatform.search.leadership.LeadershipFragment
+import com.marcuswkl.cnsplatform.search.uniformaffiliate.UniformAffiliateFragment
 import kotlinx.android.synthetic.main.fragment_search.view.*
 import java.util.*
 
@@ -113,6 +114,17 @@ class SearchFragment : Fragment() {
             val fragmentTransaction = fragmentManager?.beginTransaction()
             if (fragmentTransaction != null) {
                 fragmentTransaction.replace(R.id.search_fragment, leadershipFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
+
+        root.uniform_affiliate_tile.setOnClickListener {
+            val uniformAffiliateFragment = UniformAffiliateFragment()
+            val fragmentManager = activity?.supportFragmentManager
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            if (fragmentTransaction != null) {
+                fragmentTransaction.replace(R.id.search_fragment, uniformAffiliateFragment)
                     .addToBackStack(null)
                     .commit()
             }
