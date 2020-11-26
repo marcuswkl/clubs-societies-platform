@@ -19,10 +19,10 @@ class FollowListAdapter(
     private val clubLogos: MutableList<String>,
     private val clubNames: MutableList<String>
 ) :
-    RecyclerView.Adapter<FollowListAdapter.PostViewHolder>() {
+    RecyclerView.Adapter<FollowListAdapter.ClubViewHolder>() {
 
     // Reference to custom ViewHolder
-    class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ClubViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val clubLogo: ImageView
         val clubName: TextView
         val unfollowButton: Button
@@ -36,16 +36,16 @@ class FollowListAdapter(
     }
 
     // Creates ViewHolder and its associated View
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClubViewHolder {
         // Create View (list item) for ViewHolder
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.follow_list_club, parent, false)
 
-        return PostViewHolder(view)
+        return ClubViewHolder(view)
     }
 
     // Associates ViewHolder with data (replace view contents)
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ClubViewHolder, position: Int) {
         // Get data and replace view content
         Picasso.get().load(clubLogos[position]).into(holder.clubLogo)
         holder.clubName.text = clubNames[position]
